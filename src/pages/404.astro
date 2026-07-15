@@ -1,0 +1,41 @@
+---
+import { ArrowLeft } from "@lucide/astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Halaman Tidak Ditemukan" description="Halaman yang Anda cari tidak ditemukan." noindex>
+  <section class="not-found">
+    <div class="container">
+      <p class="eyebrow">404</p>
+      <h1>Halaman tidak ditemukan.</h1>
+      <p>Tautan mungkin sudah berubah atau alamat yang dimasukkan tidak tepat.</p>
+      <a class="button button--primary" href="/"><ArrowLeft size={18} aria-hidden="true" /> Kembali ke Beranda</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    display: grid;
+    min-height: 72svh;
+    place-items: center;
+    padding: 150px 0 90px;
+    color: #fff;
+    background: #091a30;
+  }
+
+  .not-found .eyebrow {
+    color: #f0c758;
+  }
+
+  .not-found h1 {
+    max-width: 760px;
+    margin-bottom: 18px;
+  }
+
+  .not-found p:not(.eyebrow) {
+    max-width: 600px;
+    margin-bottom: 30px;
+    color: #d6e1ec;
+  }
+</style>

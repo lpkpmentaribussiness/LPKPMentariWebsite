@@ -1,0 +1,213 @@
+---
+import { Image } from "astro:assets";
+import { Award, BriefcaseBusiness, CalendarDays, Landmark, ShieldCheck } from "@lucide/astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactCta from "../components/ContactCta.astro";
+import logo from "../assets/logomentari.png";
+import p1 from "../assets/prestasi01.jpg";
+---
+
+<BaseLayout
+  title="Tentang"
+  description="Profil, sejarah, visi, misi, legalitas, dan akreditasi LPKP Mentari di Kota Tebing Tinggi, Sumatera Utara."
+>
+  <header class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Tentang LPKP Mentari</p>
+      <h1>Lembaga keterampilan yang tumbuh bersama masyarakat.</h1>
+      <p>Sejak 2001, LPKP Mentari menyelenggarakan kursus dan pelatihan kerja profesional di Kota Tebing Tinggi.</p>
+    </div>
+  </header>
+
+  <section class="section section--white" aria-labelledby="profile-title">
+    <div class="container profile-grid">
+      <div class="profile-mark reveal">
+        <Image src={logo} alt="Logo LPKP Mentari" widths={[280, 420, 600]} sizes="(max-width: 760px) 65vw, 30vw" />
+      </div>
+      <div class="profile-copy reveal">
+        <p class="eyebrow">Profil lembaga</p>
+        <h2 id="profile-title">Pendidikan keterampilan untuk kompetensi kerja.</h2>
+        <div class="prose">
+          <p>LPKP Mentari menyelenggarakan program kursus dan pelatihan kerja profesional di bidang komputer, akuntansi, tata boga, dan menjahit di Tebing Tinggi, Sumatera Utara.</p>
+          <p>Lembaga ini dibina oleh Kementerian Pendidikan dan Kebudayaan melalui Direktorat Pembinaan Kursus dan Pelatihan. LPKP Mentari didirikan pada tahun 2001, dipimpin oleh Ketua Yayasan Drs. MHD. Sofian, M.Si., dan beralamat di Jl. Kutilang No. 5, Lingkungan 06, Kelurahan Bulian, Kecamatan Bajenis, Kota Tebing Tinggi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section identity" aria-labelledby="identity-title">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">Legalitas dan akreditasi</p>
+          <h2 id="identity-title">Identitas lembaga yang tercatat.</h2>
+        </div>
+        <p>Informasi berikut dinormalisasi dari profil publik LPKP Mentari tanpa mengubah data lembaga.</p>
+      </div>
+      <div class="identity-list">
+        <article class="identity-item reveal"><CalendarDays size={24} aria-hidden="true" /><span>Tahun berdiri</span><strong>2001</strong></article>
+        <article class="identity-item reveal"><Landmark size={24} aria-hidden="true" /><span>NPSN</span><strong>K5666768</strong></article>
+        <article class="identity-item reveal"><BriefcaseBusiness size={24} aria-hidden="true" /><span>NILEK</span><strong>07207.1.0024</strong></article>
+        <article class="identity-item reveal"><ShieldCheck size={24} aria-hidden="true" /><span>Akreditasi BAN-PNF</span><strong>B, Program Komputer (2017)</strong></article>
+        <article class="identity-item reveal"><Award size={24} aria-hidden="true" /><span>Registrasi pelatihan kerja</span><strong>VIN 1911127401</strong></article>
+      </div>
+      <p class="accreditation-note reveal">Pelatihan kerja juga dibina oleh Kementerian Tenaga Kerja dan telah terakreditasi oleh LA-LPK untuk kejuruan Operator Komputer, Jaringan Komputer, dan Sistem Administrasi pada tahun 2015.</p>
+    </div>
+  </section>
+
+  <section class="section section--white vision" aria-labelledby="vision-title">
+    <div class="container vision-grid">
+      <div class="vision-image reveal">
+        <Image src={p1} alt="Piagam penghargaan pengelola LKP tingkat Sumatera Utara" widths={[480, 760, 1100]} sizes="(max-width: 800px) 100vw, 44vw" />
+      </div>
+      <div class="vision-copy reveal">
+        <p class="eyebrow">Arah pendidikan</p>
+        <h2 id="vision-title">Visi dan misi</h2>
+        <h3>Visi</h3>
+        <p>Mewujudkan LPKP Mentari menjadi lembaga kursus dan pelatihan kerja bertaraf nasional, dengan warga pelatihan yang beriman dan bertakwa kepada Tuhan Yang Maha Esa, berpengetahuan teknologi, dan kompeten di bidangnya.</p>
+        <h3>Misi</h3>
+        <ol>
+          <li>Mewujudkan warga belajar dan lulusan yang taat dengan pengamalan ajaran agama.</li>
+          <li>Mewujudkan warga belajar dan lulusan yang memiliki minat, bakat, dan pengetahuan di bidang teknologi komputer.</li>
+          <li>Mewujudkan warga belajar dan lulusan yang memiliki kemampuan kerja sesuai standar kompetensi kerja.</li>
+          <li>Mewujudkan warga belajar dan lulusan yang kreatif dan inovatif di bidang komputer.</li>
+          <li>Mewujudkan warga belajar dan lulusan yang memiliki kemampuan dan profesionalitas kerja.</li>
+          <li>Memberikan kesempatan memperoleh pendidikan dan pelatihan keterampilan wirausaha yang berkualitas dan profesional.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <ContactCta />
+</BaseLayout>
+
+<style>
+  .profile-grid,
+  .vision-grid {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 76px;
+    align-items: center;
+  }
+
+  .profile-mark {
+    display: grid;
+    min-height: 400px;
+    place-items: center;
+    background: #edf1f4;
+  }
+
+  .profile-mark :global(img) {
+    width: min(70%, 340px);
+    height: auto;
+  }
+
+  .identity {
+    background: #e8edf1;
+  }
+
+  .identity-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-top: 1px solid #c9d2db;
+    border-bottom: 1px solid #c9d2db;
+  }
+
+  .identity-item {
+    display: flex;
+    min-height: 180px;
+    flex-direction: column;
+    padding: 26px 24px;
+    border-right: 1px solid #c9d2db;
+  }
+
+  .identity-item:last-child {
+    border-right: 0;
+  }
+
+  .identity-item svg {
+    margin-bottom: auto;
+    color: var(--teal);
+  }
+
+  .identity-item span {
+    margin-bottom: 4px;
+    color: var(--ink-soft);
+    font-size: 0.75rem;
+  }
+
+  .identity-item strong {
+    line-height: 1.35;
+  }
+
+  .accreditation-note {
+    max-width: 830px;
+    margin: 28px 0 0 auto;
+    color: var(--ink-soft);
+  }
+
+  .vision-grid {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+  }
+
+  .vision-image :global(img) {
+    width: 100%;
+    min-height: 520px;
+    object-fit: cover;
+  }
+
+  .vision-copy > p:not(.eyebrow),
+  .vision-copy li {
+    color: var(--ink-soft);
+  }
+
+  .vision-copy h3 {
+    margin: 26px 0 10px;
+    color: var(--teal);
+  }
+
+  .vision-copy ol {
+    padding-left: 22px;
+  }
+
+  .vision-copy li + li {
+    margin-top: 9px;
+  }
+
+  @media (max-width: 950px) {
+    .identity-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .identity-item {
+      border-bottom: 1px solid #c9d2db;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .profile-grid,
+    .vision-grid {
+      grid-template-columns: 1fr;
+      gap: 38px;
+    }
+
+    .profile-mark {
+      min-height: 310px;
+    }
+
+    .identity-list {
+      grid-template-columns: 1fr;
+    }
+
+    .identity-item,
+    .identity-item:last-child {
+      min-height: 135px;
+      border-right: 0;
+    }
+
+    .vision-image :global(img) {
+      min-height: 0;
+    }
+  }
+</style>

@@ -1,0 +1,211 @@
+---
+import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "@lucide/astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout
+  title="Kontak"
+  description="Hubungi LPKP Mentari melalui WhatsApp 0813-7000-7002, email, atau kunjungi lokasi di Kelurahan Bulian, Kecamatan Bajenis, Kota Tebing Tinggi."
+>
+  <header class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Kontak LPKP Mentari</p>
+      <h1>Mari bicarakan rencana pelatihan Anda.</h1>
+      <p>Hubungi kami untuk informasi program, jadwal, pendaftaran, atau kunjungan ke lokasi pelatihan.</p>
+    </div>
+  </header>
+
+  <section class="section section--white" aria-labelledby="contact-title">
+    <div class="container contact-grid">
+      <div class="contact-intro reveal">
+        <p class="eyebrow">Alamat dan kontak</p>
+        <h2 id="contact-title">Terhubung langsung dengan LPKP Mentari.</h2>
+        <p>WhatsApp adalah jalur tercepat untuk konsultasi program. Untuk kebutuhan surat-menyurat, gunakan alamat email resmi di bawah ini.</p>
+      </div>
+      <div class="contact-list">
+        <a class="contact-item contact-item--primary reveal" href={site.whatsapp} target="_blank" rel="noreferrer">
+          <MessageCircle size={27} aria-hidden="true" />
+          <span><small>WhatsApp</small><strong>{site.phoneDisplay}</strong></span>
+          <ArrowUpRight size={21} aria-hidden="true" />
+        </a>
+        <a class="contact-item reveal" href={`mailto:${site.email}`}>
+          <Mail size={27} aria-hidden="true" />
+          <span><small>Email</small><strong>{site.email}</strong></span>
+          <ArrowUpRight size={21} aria-hidden="true" />
+        </a>
+        <a class="contact-item reveal" href={site.maps} target="_blank" rel="noreferrer">
+          <MapPin size={27} aria-hidden="true" />
+          <span><small>Lokasi</small><strong>{site.address}</strong></span>
+          <ArrowUpRight size={21} aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" aria-labelledby="visit-title">
+    <div class="container visit-grid">
+      <div class="visit-address reveal">
+        <p class="eyebrow">Kunjungi lembaga</p>
+        <h2 id="visit-title">Jl. Kutilang No. 5, Lingkungan 06</h2>
+        <dl>
+          <div><dt>Kelurahan</dt><dd>Bulian</dd></div>
+          <div><dt>Kecamatan</dt><dd>Bajenis</dd></div>
+          <div><dt>Kota</dt><dd>Tebing Tinggi</dd></div>
+          <div><dt>Provinsi</dt><dd>Sumatera Utara</dd></div>
+        </dl>
+        <a class="button button--dark" href={site.maps} target="_blank" rel="noreferrer"><MapPin size={18} aria-hidden="true" /> Buka di Google Maps</a>
+      </div>
+      <div class="visit-action reveal">
+        <Phone size={32} aria-hidden="true" />
+        <p>Sebelum berkunjung, konfirmasikan jadwal melalui WhatsApp agar tim kami dapat menerima Anda.</p>
+        <a href={site.whatsapp} target="_blank" rel="noreferrer">Hubungi {site.phoneDisplay} <ArrowUpRight size={18} aria-hidden="true" /></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 84px;
+    align-items: start;
+  }
+
+  .contact-intro > p:last-child {
+    color: var(--ink-soft);
+  }
+
+  .contact-list {
+    border-top: 1px solid var(--line);
+  }
+
+  .contact-item {
+    display: grid;
+    grid-template-columns: 38px 1fr 24px;
+    gap: 16px;
+    align-items: center;
+    min-height: 108px;
+    padding: 20px 4px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .contact-item > svg:first-child {
+    color: var(--teal);
+  }
+
+  .contact-item span {
+    display: grid;
+    gap: 3px;
+  }
+
+  .contact-item small {
+    color: var(--ink-soft);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .contact-item strong {
+    overflow-wrap: anywhere;
+  }
+
+  .contact-item--primary {
+    margin-top: 0;
+    padding-inline: 20px;
+    color: #fff;
+    border-color: var(--teal);
+    background: var(--teal);
+  }
+
+  .contact-item--primary small,
+  .contact-item--primary > svg:first-child {
+    color: #dceff0;
+  }
+
+  .visit {
+    padding: 88px 0;
+    background: #e8edf1;
+  }
+
+  .visit-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 80px;
+  }
+
+  .visit-address h2 {
+    max-width: 720px;
+  }
+
+  .visit-address dl {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 34px 0;
+    border-top: 1px solid #c8d1da;
+  }
+
+  .visit-address dl div {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 14px;
+    padding: 15px 0;
+    border-bottom: 1px solid #c8d1da;
+  }
+
+  .visit-address dt {
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+  }
+
+  .visit-address dd {
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .visit-action {
+    align-self: end;
+    padding: 32px;
+    color: #fff;
+    background: #102a4c;
+  }
+
+  .visit-action > svg {
+    margin-bottom: 38px;
+    color: #f0c758;
+  }
+
+  .visit-action a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #f0c758;
+    font-weight: 700;
+  }
+
+  @media (max-width: 820px) {
+    .contact-grid,
+    .visit-grid {
+      grid-template-columns: 1fr;
+      gap: 42px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .visit {
+      padding: 64px 0;
+    }
+
+    .visit-address dl {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-item {
+      grid-template-columns: 32px 1fr 20px;
+      gap: 10px;
+    }
+  }
+</style>

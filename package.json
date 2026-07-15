@@ -1,0 +1,23 @@
+{
+  "name": "lpkp-mentari-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint": "astro check",
+    "check:links": "node scripts/check-links.mjs",
+    "validate": "npm run check && npm run build && npm run check:links"
+  },
+  "dependencies": {
+    "@lucide/astro": "1.24.0",
+    "astro": "7.0.9"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.9",
+    "typescript": "6.0.3"
+  }
+}

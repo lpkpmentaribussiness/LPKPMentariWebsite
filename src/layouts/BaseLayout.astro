@@ -1,0 +1,76 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import heroImage from "../assets/fotobanner.jpg";
+import logo from "../assets/logomentari.png";
+import { site } from "../data/site";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+
+const { title, description, noindex = false } = Astro.props;
+const canonicalPath = Astro.url.pathname === "/index.html" ? "/" : Astro.url.pathname;
+const canonical = new URL(canonicalPath, Astro.site);
+const fullTitle = title === site.name ? title : `${title} | ${site.name}`;
+const ogImage = new URL(heroImage.src, Astro.site);
+const organization = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: site.legalName,
+  alternateName: site.name,
+  url: Astro.site?.toString(),
+  logo: new URL(logo.src, Astro.site).toString(),
+  image: ogImage.toString(),
+  email: site.email,
+  telephone: site.phoneInternational,
+  foundingDate: "2001",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Jl. Kutilang No. 5, Lingkungan 06",
+    addressLocality: "Tebing Tinggi",
+    addressRegion: "Sumatera Utara",
+    addressCountry: "ID",
+  },
+  sameAs: [site.links.blog, site.links.course, site.links.marketplace],
+};
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#102a4c" />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href={logo.src} />
+    <link rel="apple-touch-icon" href={logo.src} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Peserta dan pengelola LPKP Mentari di Tebing Tinggi" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <title>{fullTitle}</title>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organization)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+    <Header />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

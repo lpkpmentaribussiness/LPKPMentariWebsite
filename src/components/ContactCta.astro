@@ -1,0 +1,58 @@
+---
+import { ArrowRight, Phone } from "@lucide/astro";
+import { site } from "../data/site";
+---
+
+<section class="contact-cta" aria-labelledby="cta-title">
+  <div class="container contact-cta-inner">
+    <div>
+      <p class="eyebrow">Mulai dari sini</p>
+      <h2 id="cta-title">Konsultasikan program pelatihan yang sesuai.</h2>
+    </div>
+    <a class="button button--primary" href={site.whatsapp} target="_blank" rel="noreferrer">
+      <Phone size={19} aria-hidden="true" /> WhatsApp {site.phoneDisplay} <ArrowRight size={18} aria-hidden="true" />
+    </a>
+  </div>
+</section>
+
+<style>
+  .contact-cta {
+    color: #fff;
+    background: #0b7479;
+  }
+
+  .contact-cta-inner {
+    display: flex;
+    min-height: 300px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 52px;
+    padding-block: 58px;
+  }
+
+  .contact-cta .eyebrow {
+    color: #fff;
+  }
+
+  .contact-cta h2 {
+    max-width: 730px;
+    margin-bottom: 0;
+  }
+
+  .contact-cta .button {
+    flex: 0 0 auto;
+  }
+
+  @media (max-width: 760px) {
+    .contact-cta-inner {
+      min-height: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .contact-cta .button {
+      width: 100%;
+    }
+  }
+</style>
