@@ -1,0 +1,742 @@
+---
+import { Image } from "astro:assets";
+import { ArrowUpRight, Camera, ExternalLink, MapPin, SlidersHorizontal, Sparkles, X } from "@lucide/astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactCta from "../components/ContactCta.astro";
+import { site, galleryActivities, achievements } from "../data/site";
+
+// Import activity assets
+import prakerin01 from "../assets/gallery/prakerin-smk-01.jpg";
+import prakerin02 from "../assets/gallery/prakerin-smk-02.jpg";
+import prakerin03 from "../assets/gallery/prakerin-smk-03.jpg";
+import uji01 from "../assets/gallery/uji-kompetensi-01.jpg";
+import uji02 from "../assets/gallery/uji-kompetensi-02.jpg";
+import lab01 from "../assets/gallery/fasilitas-lab.jpg";
+import lab02 from "../assets/gallery/fasilitas-teori.jpg";
+import jahit01 from "../assets/gallery/menjahit-01.jpg";
+import jahit02 from "../assets/gallery/menjahit-02.jpg";
+import desa01 from "../assets/gallery/pemberdayaan-02.jpg";
+import desa02 from "../assets/gallery/pemberdayaan-03.jpg";
+
+// Import achievement assets
+import p1 from "../assets/prestasi01.jpg";
+import p2 from "../assets/prestasi02.jpg";
+import p3 from "../assets/prestasi03.jpg";
+import p4 from "../assets/prestasi04.jpg";
+import p5 from "../assets/prestasi05.jpg";
+import p6 from "../assets/prestasi06.jpg";
+import p7 from "../assets/prestasi07.jpg";
+
+const activityImageMap = {
+  "prakerin-smk-01.jpg": prakerin01,
+  "prakerin-smk-02.jpg": prakerin02,
+  "prakerin-smk-03.jpg": prakerin03,
+  "uji-kompetensi-01.jpg": uji01,
+  "uji-kompetensi-02.jpg": uji02,
+  "fasilitas-lab.jpg": lab01,
+  "fasilitas-teori.jpg": lab02,
+  "menjahit-01.jpg": jahit01,
+  "menjahit-02.jpg": jahit02,
+  "pemberdayaan-02.jpg": desa01,
+  "pemberdayaan-03.jpg": desa02,
+} as const;
+
+const achievementImages = [p1, p2, p3, p4, p5, p6, p7];
+
+const combinedGallery = [
+  ...galleryActivities.map((item) => ({
+    id: item.id,
+    image: activityImageMap[item.image as keyof typeof activityImageMap],
+    title: item.title,
+    category: item.category,
+    badge: item.badge,
+    year: item.year,
+    description: item.description,
+  })),
+  ...achievements.map((item, idx) => ({
+    id: `prestasi-${idx + 1}`,
+    image: achievementImages[idx],
+    title: item.title,
+    category: "Prestasi Lembaga",
+    badge: "Piagam / Prestasi",
+    year: item.year,
+    description: `Dokumentasi piagam penghargaan resmi: ${item.title}.`,
+  })),
+];
+
+const categories = [
+  "Semua",
+  "Prakerin SMK",
+  "Sertifikasi & TUK",
+  "Fasilitas & Lab",
+  "Tata Busana",
+  "Pemberdayaan Masyarakat",
+  "Prestasi Lembaga",
+];
+---
+
+<BaseLayout
+  title="Galeri Foto & Dokumentasi Kegiatan"
+  description="Dokumentasi foto kegiatan pelatihan kerja, praktik siswa SMK, sertifikasi uji kompetensi, sarana laboratorium, dan prestasi LPKP Mentari Tebing Tinggi."
+>
+  <header class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Dokumentasi &amp; Aktivitas</p>
+      <h1>Galeri Kegiatan &amp; Fasilitas LPKP Mentari</h1>
+      <p>Rekam jejak visual pembelajaran kejuruan, uji kompetensi, laboratorium pelatihan, dan karya peserta di Kota Tebing Tinggi.</p>
+    </div>
+  </header>
+
+  <section class="section section--white" aria-labelledby="gallery-section-title">
+    <div class="container">
+      <div class="gallery-topbar reveal">
+        <div class="gallery-info">
+          <h2 id="gallery-section-title" class="sr-only">Koleksi Foto LPKP Mentari</h2>
+          <span class="gallery-count">
+            <Camera size={18} aria-hidden="true" />
+            <span><strong>{combinedGallery.length} Foto</strong> Dokumentasi Terverifikasi</span>
+          </span>
+        </div>
+        
+        <div class="gallery-maps-banner">
+          <a class="button button--maps" href={site.maps} target="_blank" rel="noreferrer">
+            <MapPin size={17} aria-hidden="true" />
+            <span>Lihat Profil di Google Maps</span>
+            <ExternalLink size={15} aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-wrapper reveal" role="region" aria-label="Filter kategori galeri">
+        <div class="filter-header">
+          <SlidersHorizontal size={17} aria-hidden="true" />
+          <span>Kategori:</span>
+        </div>
+        <div class="filter-tabs" id="gallery-filters" role="tablist">
+          {categories.map((cat, idx) => (
+            <button
+              type="button"
+              class:list={["filter-tab", { "filter-tab--active": idx === 0 }]}
+              role="tab"
+              aria-selected={idx === 0 ? "true" : "false"}
+              data-filter={cat}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="gallery-grid">
+        {combinedGallery.map((item) => (
+          <article
+            class="gallery-card reveal"
+            data-category={item.category}
+            data-title={item.title}
+            data-desc={item.description}
+            data-badge={item.badge}
+            data-year={item.year}
+            data-src={item.image.src}
+          >
+            <div class="gallery-card-media">
+              <Image
+                src={item.image}
+                alt={item.title}
+                widths={[360, 600, 900]}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                loading="lazy"
+              />
+              <span class="gallery-card-badge">{item.badge}</span>
+              <button
+                type="button"
+                class="gallery-card-action"
+                aria-label={`Perbesar foto: ${item.title}`}
+                data-open-modal
+              >
+                <Sparkles size={16} aria-hidden="true" />
+                <span>Lihat Detail</span>
+              </button>
+            </div>
+            <div class="gallery-card-content">
+              <div class="gallery-card-meta">
+                <span class="meta-category">{item.category}</span>
+                <span class="meta-year">&bull; {item.year}</span>
+              </div>
+              <h3 class="gallery-card-title">{item.title}</h3>
+              <p class="gallery-card-desc">{item.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <p>Tidak ada foto yang ditemukan untuk kategori ini.</p>
+      </div>
+
+      <!-- Google Maps Callout Box -->
+      <div class="maps-callout reveal">
+        <div class="maps-callout-copy">
+          <p class="eyebrow">Google Maps &amp; Penelusuran</p>
+          <h3>Temukan dan Kunjungi LPKP Mentari</h3>
+          <p>Alamat: {site.address}. Anda dapat melihat ulasan, petunjuk arah navigasi, dan foto lokasi langsung melalui tautan Google Maps kami.</p>
+        </div>
+        <div class="maps-callout-action">
+          <a class="button button--primary" href={site.maps} target="_blank" rel="noreferrer">
+            <MapPin size={18} aria-hidden="true" /> Buka Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <dialog id="gallery-lightbox" class="lightbox-dialog" aria-labelledby="lightbox-title">
+    <div class="lightbox-backdrop" data-close-lightbox></div>
+    <div class="lightbox-container">
+      <button type="button" class="lightbox-close" aria-label="Tutup preview foto" data-close-lightbox>
+        <X size={24} aria-hidden="true" />
+      </button>
+
+      <div class="lightbox-content">
+        <div class="lightbox-figure">
+          <img id="lightbox-img" src="" alt="" />
+        </div>
+        <div class="lightbox-info">
+          <div class="lightbox-meta">
+            <span id="lightbox-badge" class="badge"></span>
+            <span id="lightbox-year" class="year"></span>
+          </div>
+          <h2 id="lightbox-title"></h2>
+          <p id="lightbox-desc"></p>
+          <a id="lightbox-raw-link" class="text-link" href="" target="_blank" rel="noreferrer">
+            <span>Buka Gambar Asli</span>
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <ContactCta />
+</BaseLayout>
+
+<script>
+  // Filter logic
+  const filterTabs = document.querySelectorAll<HTMLButtonElement>(".filter-tab");
+  const galleryCards = document.querySelectorAll<HTMLElement>(".gallery-card");
+  const emptyState = document.getElementById("empty-state");
+
+  filterTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      filterTabs.forEach((t) => {
+        t.classList.remove("filter-tab--active");
+        t.setAttribute("aria-selected", "false");
+      });
+      tab.classList.add("filter-tab--active");
+      tab.setAttribute("aria-selected", "true");
+
+      const filter = tab.dataset.filter || "Semua";
+      let visibleCount = 0;
+
+      galleryCards.forEach((card) => {
+        const cat = card.dataset.category || "";
+        if (filter === "Semua" || cat === filter) {
+          card.style.display = "";
+          visibleCount++;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      if (emptyState) {
+        emptyState.hidden = visibleCount > 0;
+      }
+    });
+  });
+
+  // Lightbox logic
+  const dialog = document.getElementById("gallery-lightbox") as HTMLDialogElement | null;
+  const lbImg = document.getElementById("lightbox-img") as HTMLImageElement | null;
+  const lbTitle = document.getElementById("lightbox-title");
+  const lbDesc = document.getElementById("lightbox-desc");
+  const lbBadge = document.getElementById("lightbox-badge");
+  const lbYear = document.getElementById("lightbox-year");
+  const lbRawLink = document.getElementById("lightbox-raw-link") as HTMLAnchorElement | null;
+  const closeBtns = document.querySelectorAll("[data-close-lightbox]");
+
+  const openLightbox = (card: HTMLElement) => {
+    if (!dialog || !lbImg) return;
+    const src = card.dataset.src || "";
+    const title = card.dataset.title || "";
+    const desc = card.dataset.desc || "";
+    const badge = card.dataset.badge || "";
+    const year = card.dataset.year || "";
+
+    lbImg.src = src;
+    lbImg.alt = title;
+    if (lbTitle) lbTitle.textContent = title;
+    if (lbDesc) lbDesc.textContent = desc;
+    if (lbBadge) lbBadge.textContent = badge;
+    if (lbYear) lbYear.textContent = year ? `(${year})` : "";
+    if (lbRawLink) lbRawLink.href = src;
+
+    dialog.showModal();
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeLightbox = () => {
+    if (!dialog) return;
+    dialog.close();
+    document.body.style.overflow = "";
+    if (lbImg) lbImg.src = "";
+  };
+
+  galleryCards.forEach((card) => {
+    const btn = card.querySelector("[data-open-modal]");
+    btn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openLightbox(card);
+    });
+    card.addEventListener("click", () => {
+      openLightbox(card);
+    });
+  });
+
+  closeBtns.forEach((btn) => {
+    btn.addEventListener("click", closeLightbox);
+  });
+
+  dialog?.addEventListener("close", () => {
+    document.body.style.overflow = "";
+  });
+
+  dialog?.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
+</script>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .gallery-topbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .gallery-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    color: var(--navy);
+    font-size: 0.88rem;
+    background: #eef3f8;
+    border: 1px solid #d4e0ec;
+    border-radius: 999px;
+  }
+
+  .gallery-count strong {
+    color: var(--navy-deep);
+  }
+
+  .button--maps {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    color: #1a73e8;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: #e8f0fe;
+    border: 1px solid #c2d7fc;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .button--maps:hover {
+    color: #174ea6;
+    background: #d2e3fc;
+  }
+
+  /* Filter Tabs */
+  .filter-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 36px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .filter-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .filter-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .filter-tab {
+    padding: 7px 16px;
+    color: var(--ink);
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+
+  .filter-tab:hover {
+    border-color: #a9b7c6;
+    background: #e9eef3;
+  }
+
+  .filter-tab--active {
+    color: #fff;
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+
+  .filter-tab--active:hover {
+    background: var(--navy-deep);
+    border-color: var(--navy-deep);
+  }
+
+  /* Gallery Grid */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .gallery-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgb(16 42 76 / 4%);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-4px);
+    border-color: #b7c7d7;
+    box-shadow: 0 12px 24px rgb(16 42 76 / 10%);
+  }
+
+  .gallery-card-media {
+    position: relative;
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    background: #091a30;
+  }
+
+  .gallery-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .gallery-card:hover .gallery-card-media img {
+    transform: scale(1.05);
+  }
+
+  .gallery-card-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    padding: 4px 10px;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: rgb(9 26 48 / 85%);
+    backdrop-filter: blur(6px);
+    border-radius: 4px;
+    border: 1px solid rgb(255 255 255 / 20%);
+  }
+
+  .gallery-card-action {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #fff;
+    font-size: 0.88rem;
+    font-weight: 700;
+    background: rgb(9 26 48 / 60%);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .gallery-card:hover .gallery-card-action,
+  .gallery-card:focus-within .gallery-card-action {
+    opacity: 1;
+  }
+
+  .gallery-card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 18px 20px;
+  }
+
+  .gallery-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--teal);
+  }
+
+  .meta-year {
+    color: #7b8e9f;
+  }
+
+  .gallery-card-title {
+    margin: 0 0 8px;
+    color: var(--navy);
+    font-size: 1.05rem;
+    line-height: 1.4;
+  }
+
+  .gallery-card-desc {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
+  .empty-state {
+    padding: 48px 20px;
+    text-align: center;
+    color: var(--ink-soft);
+    background: var(--paper);
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    margin: 24px 0;
+  }
+
+  /* Maps Callout */
+  .maps-callout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-top: 56px;
+    padding: 32px 36px;
+    background: #f0f4f9;
+    border: 1px solid #d0dce8;
+    border-left: 5px solid #1a73e8;
+    border-radius: 8px;
+  }
+
+  .maps-callout-copy h3 {
+    margin: 4px 0 8px;
+    color: var(--navy);
+    font-size: 1.35rem;
+  }
+
+  .maps-callout-copy p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    max-width: 680px;
+  }
+
+  .maps-callout-action {
+    flex-shrink: 0;
+  }
+
+  /* Lightbox */
+  .lightbox-dialog {
+    padding: 0;
+    border: none;
+    background: transparent;
+    max-width: 95vw;
+    width: 900px;
+    max-height: 90vh;
+  }
+
+  .lightbox-dialog::backdrop {
+    background: rgb(9 26 48 / 82%);
+    backdrop-filter: blur(8px);
+  }
+
+  .lightbox-container {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgb(0 0 0 / 30%);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 10;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: rgb(9 26 48 / 75%);
+    border: 1px solid rgb(255 255 255 / 30%);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .lightbox-close:hover {
+    background: rgb(9 26 48 / 100%);
+  }
+
+  .lightbox-content {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+  }
+
+  .lightbox-figure {
+    background: #091a30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 520px;
+  }
+
+  .lightbox-figure img {
+    width: 100%;
+    height: 100%;
+    max-height: 520px;
+    object-fit: contain;
+  }
+
+  .lightbox-info {
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff;
+  }
+
+  .lightbox-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .lightbox-meta .badge {
+    padding: 3px 10px;
+    color: var(--teal);
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: #e3f5f5;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .lightbox-meta .year {
+    color: #7b8e9f;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .lightbox-info h2 {
+    margin: 0 0 12px;
+    color: var(--navy);
+    font-size: 1.25rem;
+    line-height: 1.35;
+  }
+
+  .lightbox-info p {
+    margin: 0 0 20px;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 960px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .lightbox-content {
+      grid-template-columns: 1fr;
+    }
+
+    .lightbox-figure {
+      max-height: 340px;
+    }
+
+    .maps-callout {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-topbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .filter-tabs {
+      flex-wrap: nowrap;
+    }
+  }
+</style>

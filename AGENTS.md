@@ -5,15 +5,16 @@
 - **Remote:** `https://github.com/lpkpmentaribussiness/LPKPMentariWebsite.git`
 - **Active Branch:** `main`
 - **Tech Stack:** Astro 7 (Static Output), `@lucide/astro`, TypeScript, Vercel Hosting
-- **Primary Data Source:** `src/data/site.ts` (`site`, `programs`, `achievements`)
+- **Primary Data Source:** `src/data/site.ts` (`site`, `programs`, `achievements`, `galleryActivities`)
 - **Knowledge Graph:** `graphify-out/` (AST-indexed, auto-updated via git hook)
 
 ---
 
 ## 🧭 Pages & Structure
 
-- **Landing Page (`/`):** `src/pages/index.astro` — Hero, Strengths (Terakreditasi B, Kurikulum Matang, Fasilitas), 6 Program Pelatihan Vokasi, Galeri Prestasi, Kontak CTA.
+- **Landing Page (`/`):** `src/pages/index.astro` — Hero, Strengths (Terakreditasi B, Kurikulum Matang, Fasilitas), 6 Program Pelatihan Vokasi, Galeri Rekam Jejak, Kontak CTA.
 - **Tentang Lembaga (`/tentang.html`):** `src/pages/tentang.astro` — Profil, Legalitas (NPSN `K5666768`, Akreditasi B BAN-PNF 2017), Visi & Misi, Sejarah berdiri (2001).
+- **Galeri Foto (`/galeri.html`):** `src/pages/galeri.astro` — Dokumentasi foto kegiatan (Prakerin SMK, Uji Kompetensi TUK, Laboratorium, Tata Busana, Pemberdayaan Masyarakat, Prestasi), Filter Kategori, Lightbox Modal, Google Maps Callout.
 - **Kontak & Lokasi (`/kontak.html`):** `src/pages/kontak.astro` — Alamat (Jl. Kutilang No. 5, Tebing Tinggi, Sumut), WhatsApp (`0813-7000-7002`), Google Maps embed/link.
 - **Error Page (`/404.html`):** `src/pages/404.astro`
 

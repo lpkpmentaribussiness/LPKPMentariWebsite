@@ -10,6 +10,13 @@ import { site } from "../data/site";
       <h2>Keterampilan untuk langkah kerja yang lebih pasti.</h2>
     </div>
     <div>
+      <p class="footer-title">Navigasi</p>
+      <a href="/">Beranda</a>
+      <a href="/tentang.html">Tentang Lembaga</a>
+      <a href="/galeri.html">Galeri Foto</a>
+      <a href="/kontak.html">Kontak &amp; Lokasi</a>
+    </div>
+    <div>
       <p class="footer-title">Hubungi</p>
       <a href={site.maps} target="_blank" rel="noreferrer"><MapPin size={17} aria-hidden="true" /> {site.address}</a>
       <a href={`mailto:${site.email}`}><Mail size={17} aria-hidden="true" /> {site.email}</a>
@@ -38,8 +45,8 @@ import { site } from "../data/site";
 
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 0.65fr;
-    gap: 72px;
+    grid-template-columns: 1.3fr 0.7fr 1fr 0.7fr;
+    gap: 48px;
     padding-bottom: 62px;
   }
 

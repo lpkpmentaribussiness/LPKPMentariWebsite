@@ -1,6 +1,6 @@
 ---
 import { Image, Picture } from "astro:assets";
-import { ArrowRight, Award, BookOpenCheck, Building2, CircleCheckBig, MonitorUp, ShieldCheck } from "@lucide/astro";
+import { ArrowRight, Award, BookOpenCheck, Building2, Camera, CircleCheckBig, MonitorUp, ShieldCheck } from "@lucide/astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactCta from "../components/ContactCta.astro";
 import hero from "../assets/fotobanner.jpg";
@@ -122,7 +122,7 @@ const strengths = [
     <div class="container">
       <div class="section-heading reveal">
         <div>
-          <p class="eyebrow">Rekam jejak</p>
+          <p class="eyebrow">Rekam jejak &amp; Dokumentasi</p>
           <h2 id="achievement-title">Prestasi dan pengabdian yang terdokumentasi.</h2>
         </div>
         <p>Penghargaan lembaga dan pengelola menjadi bagian dari perjalanan LPKP Mentari melayani masyarakat Tebing Tinggi.</p>
@@ -139,6 +139,11 @@ const strengths = [
             </figcaption>
           </figure>
         ))}
+      </div>
+      <div class="gallery-action-wrapper reveal">
+        <a class="button button--primary" href="/galeri.html">
+          <Camera size={18} aria-hidden="true" /> Lihat Galeri Lengkap &amp; Dokumentasi Kegiatan <ArrowRight size={18} aria-hidden="true" />
+        </a>
       </div>
     </div>
   </section>
@@ -428,6 +433,12 @@ const strengths = [
 
   .gallery-item figcaption strong {
     line-height: 1.38;
+  }
+
+  .gallery-action-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
   }
 
   @media (max-width: 900px) {
