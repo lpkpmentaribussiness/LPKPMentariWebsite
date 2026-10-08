@@ -19,10 +19,16 @@ export const site = {
 export const programs = [
   { title: "Komputer Office", description: "Keterampilan aplikasi perkantoran untuk kebutuhan kerja dan administrasi." },
   { title: "Teknisi Komputer", description: "Dasar perawatan, perbaikan, dan penanganan perangkat komputer." },
+  { title: "Teknik Jaringan", description: "Instalasi, konfigurasi jaringan komputer, dan penanganan infrastruktur konektivitas." },
   { title: "Desain Grafis", description: "Keterampilan visual dan pengolahan desain untuk kebutuhan profesional." },
-  { title: "Akuntansi MYOB", description: "Pencatatan dan pengelolaan akuntansi menggunakan perangkat lunak MYOB." },
+  { title: "Multimedia", description: "Produksi dan pengolahan konten audio visual, foto, dan media kreatif interaktif." },
+  { title: "Programer Web Desain", description: "Perancangan tampilan website responsif, antarmuka, dan dasar pemrograman web." },
+  { title: "Akuntansi Myob-Accurate", description: "Pencatatan dan pengelolaan akuntansi menggunakan perangkat lunak MYOB dan Accurate." },
   { title: "Tata Boga", description: "Pelatihan keterampilan pengolahan makanan untuk kerja dan wirausaha." },
-  { title: "Menjahit", description: "Keterampilan menjahit yang terarah pada kompetensi kerja dan usaha mandiri." },
+  { title: "Tata Busana", description: "Keterampilan menjahit dan pembuatan busana untuk kompetensi kerja dan usaha mandiri." },
+  { title: "Salon Tata Rias", description: "Keterampilan tata rias wajah, perawatan kecantikan, dan tata rambut untuk wirausaha." },
+  { title: "Pengelasan", description: "Teknik pengelasan logam, keselamatan kerja bengkel, dan fabrikasi konstruksi dasar." },
+  { title: "Barista Kopi", description: "Keahlian meracik kopi, teknik seduh manual dan mesin, serta operasional bar kopi." },
 ] as const;
 
 export const achievements = [
