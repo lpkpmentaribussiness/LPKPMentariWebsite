@@ -31,6 +31,73 @@ export const programs = [
   { title: "Barista Kopi", description: "Keahlian meracik kopi, teknik seduh manual dan mesin, serta operasional bar kopi." },
 ] as const;
 
+export const professionalProgram = {
+  badge: "Program Unggulan 1 Tahun",
+  title: "Program Profesional 1 Tahun Komputer",
+  headline: "Siap Kerja & Wirausaha Mandiri",
+  duration: "1 Tahun",
+  description: "Program vokasi intensif 1 tahun berorientasi karir industri dan kemandirian wirausaha. Membekali peserta dari fondasi teknis komputer hingga implementasi nyata di dunia kerja.",
+  benefits: [
+    {
+      title: "Disediakan Tempat Tinggal",
+      description: "Akomodasi tempat tinggal gratis selama masa pendidikan bagi peserta pelatihan.",
+    },
+    {
+      title: "Makan 3x Sehari",
+      description: "Konsumsi makan 3 kali sehari disediakan penuh agar peserta fokus belajar.",
+    },
+    {
+      title: "Praktek Kerja Lapangan (PKL)",
+      description: "Implementasi langsung di dunia usaha & penyusunan portofolio karya profesional.",
+    },
+  ],
+  modules: [
+    {
+      number: "01",
+      title: "Dasar Komputer dan Sistem Operasi",
+      topics: [
+        "Hardware & Software (CPU, RAM, Harddisk)",
+        "Sistem Operasi (Basis GUI & Text, Manajemen File)",
+        "Sistem Jaringan Dasar (Konfigurasi Jaringan LAN & WAN)",
+      ],
+    },
+    {
+      number: "02",
+      title: "Aplikasi Perkantoran",
+      topics: [
+        "Microsoft Word",
+        "Microsoft Excel",
+        "Microsoft PowerPoint",
+      ],
+    },
+    {
+      number: "03",
+      title: "Desain Grafis",
+      topics: [
+        "Aplikasi Desain (CorelDraw dan Photoshop)",
+        "Multimedia & Konten Kreator",
+      ],
+    },
+    {
+      number: "04",
+      title: "Pemrograman dan Pengembangan Web",
+      topics: [
+        "Logika Program Dasar",
+        "Pemrograman Web & Mobile (HTML, CSS, JavaScript)",
+      ],
+    },
+    {
+      number: "05",
+      title: "Keahlian Wirausaha",
+      topics: [
+        "Digital Marketing (Pemasaran Online & Media Sosial)",
+        "Komputer Akuntansi (MYOB / Accurate)",
+        "Praktek Kerja Lapangan (Implementasi di Dunia Usaha & Portofolio)",
+      ],
+    },
+  ],
+} as const;
+
 export const achievements = [
   { image: "prestasi01.jpg", title: "Juara II Pengelola LKP Tingkat Sumatera Utara", year: "2012" },
   { image: "prestasi02.jpg", title: "Juara I Pengelola LKP Tingkat Kota Tebing Tinggi", year: "Prestasi lembaga" },
