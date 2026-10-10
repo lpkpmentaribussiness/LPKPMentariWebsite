@@ -1,0 +1,584 @@
+---
+import { ArrowRight, ArrowUpRight, Bed, CircleCheckBig, GraduationCap, MonitorUp, ShieldCheck, Sparkles, Utensils, Wrench } from "@lucide/astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactCta from "../components/ContactCta.astro";
+import { professionalProgram, programs, site } from "../data/site";
+---
+
+<BaseLayout
+  title="Pelatihan Vokasi"
+  description="11 Program Kursus dan Pelatihan Keterampilan Vokasi LPKP Mentari Kota Tebing Tinggi: Komputer Office, Teknisi Akuntansi, Tata Boga, Menjahit, Salon Rias, Pengelasan, Teknisi Komputer, Handphone, Jaringan, Web Desain, Desain Grafis."
+>
+  <header class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Pelatihan Vokasi LPKP Mentari</p>
+      <h1>Pilihan Program Pelatihan Keterampilan Vokasi Siap Kerja.</h1>
+      <p>Kurikulum vokasi terarah berstandar kompetensi kerja, dirancang untuk membangun keahlian praktis dan kemandirian wirausaha di Kota Tebing Tinggi.</p>
+    </div>
+  </header>
+
+  <!-- Showcase Program Unggulan 1 Tahun -->
+  <section class="section pro-program" id="program-1-tahun" aria-labelledby="pro-title">
+    <div class="container">
+      <div class="pro-card reveal">
+        <div class="pro-banner">
+          <div class="pro-banner-content">
+            <span class="pro-badge"><Sparkles size={15} aria-hidden="true" /> {professionalProgram.badge}</span>
+            <h2 id="pro-title">{professionalProgram.title}</h2>
+            <p class="pro-desc">{professionalProgram.description}</p>
+            <div class="pro-benefits">
+              {professionalProgram.benefits.map((b) => (
+                <div class="pro-benefit-item">
+                  <div class="pro-benefit-icon">
+                    {b.title.includes("Tempat Tinggal") ? (
+                      <Bed size={22} aria-hidden="true" />
+                    ) : b.title.includes("Makan") ? (
+                      <Utensils size={22} aria-hidden="true" />
+                    ) : (
+                      <GraduationCap size={22} aria-hidden="true" />
+                    )}
+                  </div>
+                  <div>
+                    <strong>{b.title}</strong>
+                    <p>{b.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="pro-syllabus">
+          <div class="pro-syllabus-head">
+            <p class="eyebrow">Kompetensi Vokasi</p>
+            <h3>5 Modul Keahlian Terpadu (1 Tahun)</h3>
+            <p class="pro-syllabus-sub">Kurikulum komprehensif mulai dari pemahaman fondasi sistem hingga praktek kerja lapangan &amp; portofolio.</p>
+          </div>
+          <div class="pro-modules-grid">
+            {professionalProgram.modules.map((m) => (
+              <div class="pro-module-card">
+                <div class="pro-module-num">Modul {m.number}</div>
+                <h4>{m.title}</h4>
+                <ul>
+                  {m.topics.map((t) => (
+                    <li>
+                      <CircleCheckBig size={16} aria-hidden="true" />
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div class="pro-cta-wrap">
+            <div class="pro-cta-info">
+              <strong>Pendaftaran Program Profesional 1 Tahun Dibuka</strong>
+              <p>Fasilitas asrama tempat tinggal dan makan 3x sehari disediakan. Konsultasikan syarat dan pendaftaran langsung via WhatsApp resmi.</p>
+            </div>
+            <a
+              class="button button--primary"
+              href={`https://wa.me/6281370007002?text=${encodeURIComponent("Halo LPKP Mentari, saya ingin konsultasi dan mendaftar Program Profesional 1 Tahun Komputer (Fasilitas Tempat Tinggal & Makan 3x Sehari).")}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Konsultasi via WhatsApp <ArrowRight size={18} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 Program Pelatihan Vokasi -->
+  <section class="section section--white" id="program-reguler" aria-labelledby="vocational-title">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">Daftar Kejuruan Resmi</p>
+          <h2 id="vocational-title">11 Program Pelatihan Vokasi Lembaga.</h2>
+        </div>
+        <p>Program kursus terstruktur dengan komposisi 70% praktik langsung dan 30% teori terapan untuk mempersiapkan peserta memasuki dunia kerja maupun wirausaha mandiri.</p>
+      </div>
+
+      <div class="vocation-grid">
+        {programs.map((program, index) => (
+          <article class="vocation-card reveal">
+            <div class="vocation-card-header">
+              <span class="vocation-num">{String(index + 1).padStart(2, "0")}</span>
+              <span class="vocation-badge">Siap Kerja &amp; Wirausaha</span>
+            </div>
+            <div class="vocation-card-body">
+              <h3>{program.title}</h3>
+              <p>{program.description}</p>
+            </div>
+            <div class="vocation-card-footer">
+              <a
+                class="vocation-action"
+                href={`https://wa.me/6281370007002?text=${encodeURIComponent(`Halo LPKP Mentari, saya ingin konsultasi pendaftaran Pelatihan Vokasi: ${program.title}.`)}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>Daftar / Konsultasi</span>
+                <ArrowRight size={16} aria-hidden="true" />
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Metode & Keunggulan Pelatihan -->
+  <section class="section advantages" aria-labelledby="advantages-title">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">Metode Pembelajaran</p>
+          <h2 id="advantages-title">Standar Kualitas Vokasi LPKP Mentari.</h2>
+        </div>
+        <p>Didukung pengalaman menyelenggarakan pendidikan keterampilan kerja sejak 2001 di Kota Tebing Tinggi.</p>
+      </div>
+
+      <div class="advantages-grid">
+        <div class="advantage-card reveal">
+          <div class="advantage-icon"><CircleCheckBig size={26} aria-hidden="true" /></div>
+          <h3>70% Praktik Langsung</h3>
+          <p>Fokus pada latihan teknis di laboratorium dan bengkel kerja agar peserta terbiasa menyelesaikan tugas sesuai standar kerja industri.</p>
+        </div>
+        <div class="advantage-card reveal">
+          <div class="advantage-icon"><ShieldCheck size={26} aria-hidden="true" /></div>
+          <h3>Terakreditasi &amp; Legalitas Resmi</h3>
+          <p>Terakreditasi B (BAN-PNF 2017), memiliki NPSN K5666768, dan teregistrasi resmi di Kementerian Pendidikan serta Kementerian Tenaga Kerja.</p>
+        </div>
+        <div class="advantage-card reveal">
+          <div class="advantage-icon"><Wrench size={26} aria-hidden="true" /></div>
+          <h3>Fasilitas Praktik Terpadu</h3>
+          <p>Laboratorium komputer AC, bengkel las keselamatan kerja, studio jahit, dan perlengkapan tata rias lengkap untuk menunjang pembelajaran optimal.</p>
+        </div>
+        <div class="advantage-card reveal">
+          <div class="advantage-icon"><GraduationCap size={26} aria-hidden="true" /></div>
+          <h3>Sertifikat Resmi &amp; Portofolio</h3>
+          <p>Lulusan menerima sertifikat resmi lembaga dan bimbingan penyusunan portofolio karya untuk melamar pekerjaan atau memulai wirausaha mandiri.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Online Course Callout -->
+  <section class="section online-callout section--white" aria-labelledby="online-title">
+    <div class="container">
+      <div class="online-box reveal">
+        <div class="online-content">
+          <p class="eyebrow">Fleksibilitas Belajar Daring</p>
+          <h2 id="online-title">Ingin Belajar Keterampilan Secara Online?</h2>
+          <p>LPKP Mentari juga menyediakan platform pembelajaran daring bersertifikat resmi. Akses materi video interaktif, kuis praktik, dan ujian sertifikasi kapan saja dari perangkat Anda.</p>
+          <a class="button button--primary" href={site.links.course} target="_blank" rel="noreferrer">
+            Buka Mentari Online Course <MonitorUp size={18} aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ContactCta />
+</BaseLayout>
+
+<style>
+  /* Program Unggulan 1 Tahun */
+  .pro-program {
+    padding: 60px 0 80px;
+    background: #eef2f6;
+  }
+
+  .pro-card {
+    overflow: hidden;
+    border: 1px solid #c9d5e0;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 16px 40px -12px rgb(9 26 48 / 10%);
+  }
+
+  .pro-banner {
+    position: relative;
+    padding: 56px 48px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #091a30 0%, #102a4c 55%, #0b7479 100%);
+  }
+
+  .pro-banner-content {
+    max-width: 960px;
+  }
+
+  .pro-badge {
+    display: inline-flex;
+    gap: 7px;
+    align-items: center;
+    padding: 6px 14px;
+    margin-bottom: 20px;
+    color: #091a30;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    background: #f0c758;
+  }
+
+  .pro-banner h2 {
+    margin-bottom: 16px;
+    color: #ffffff;
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    line-height: 1.15;
+  }
+
+  .pro-desc {
+    max-width: 740px;
+    margin-bottom: 36px;
+    color: #d6e3ee;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .pro-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .pro-benefit-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 18px 20px;
+    border: 1px solid rgb(255 255 255 / 15%);
+    border-radius: 12px;
+    background: rgb(255 255 255 / 8%);
+    backdrop-filter: blur(8px);
+  }
+
+  .pro-benefit-icon {
+    display: grid;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    color: #091a30;
+    border-radius: 10px;
+    background: #f0c758;
+  }
+
+  .pro-benefit-item strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #ffffff;
+    font-size: 0.96rem;
+  }
+
+  .pro-benefit-item p {
+    margin: 0;
+    color: #c0d1e0;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .pro-syllabus {
+    padding: 48px;
+    background: #ffffff;
+  }
+
+  .pro-syllabus-head {
+    margin-bottom: 32px;
+  }
+
+  .pro-syllabus-head h3 {
+    margin: 6px 0 10px;
+    color: #172339;
+    font-size: 1.65rem;
+  }
+
+  .pro-syllabus-sub {
+    max-width: 700px;
+    margin: 0;
+    color: #4c596d;
+    font-size: 0.95rem;
+  }
+
+  .pro-modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .pro-module-card {
+    padding: 24px;
+    border: 1px solid #dce2e8;
+    border-radius: 14px;
+    background: #f8fafc;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .pro-module-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -6px rgb(9 26 48 / 8%);
+  }
+
+  .pro-module-num {
+    display: inline-block;
+    padding: 3px 10px;
+    margin-bottom: 12px;
+    color: #0b7479;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 6px;
+    background: #e3f2f3;
+  }
+
+  .pro-module-card h4 {
+    margin-bottom: 14px;
+    color: #102a4c;
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+
+  .pro-module-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .pro-module-card li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: #4c596d;
+    font-size: 0.86rem;
+    line-height: 1.4;
+  }
+
+  .pro-module-card li svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #0b7479;
+  }
+
+  .pro-cta-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 32px;
+    margin-top: 36px;
+    border: 1px solid #c9d5e0;
+    border-radius: 14px;
+    background: #f0f4f8;
+  }
+
+  .pro-cta-info {
+    max-width: 600px;
+  }
+
+  .pro-cta-info strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #102a4c;
+    font-size: 1.05rem;
+  }
+
+  .pro-cta-info p {
+    margin: 0;
+    color: #4c596d;
+    font-size: 0.88rem;
+  }
+
+  /* Grid 11 Kejuruan */
+  .vocation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 28px;
+    margin-top: 44px;
+  }
+
+  .vocation-card {
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    border: 1px solid #dce2e8;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 16px -4px rgb(9 26 48 / 5%);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .vocation-card:hover {
+    transform: translateY(-4px);
+    border-color: #0b7479;
+    box-shadow: 0 14px 28px -8px rgb(11 116 121 / 15%);
+  }
+
+  .vocation-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .vocation-num {
+    color: #0b7479;
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+
+  .vocation-badge {
+    padding: 4px 10px;
+    color: #091a30;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 999px;
+    background: #f4e7bd;
+  }
+
+  .vocation-card-body {
+    flex: 1;
+    margin-bottom: 24px;
+  }
+
+  .vocation-card-body h3 {
+    margin-bottom: 10px;
+    color: #102a4c;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .vocation-card-body p {
+    margin: 0;
+    color: #4c596d;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .vocation-card-footer {
+    padding-top: 16px;
+    border-top: 1px solid #edf1f4;
+  }
+
+  .vocation-action {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    color: #0b7479;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: gap 0.2s ease;
+  }
+
+  .vocation-action:hover {
+    gap: 12px;
+    color: #102a4c;
+  }
+
+  /* Advantages */
+  .advantages {
+    background: #edf1f4;
+  }
+
+  .advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+  }
+
+  .advantage-card {
+    padding: 28px;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px -2px rgb(9 26 48 / 6%);
+  }
+
+  .advantage-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 18px;
+    place-items: center;
+    color: #0b7479;
+    border-radius: 12px;
+    background: #e3f2f3;
+  }
+
+  .advantage-card h3 {
+    margin-bottom: 10px;
+    color: #102a4c;
+    font-size: 1.15rem;
+  }
+
+  .advantage-card p {
+    margin: 0;
+    color: #4c596d;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  /* Online Callout */
+  .online-box {
+    padding: 56px 48px;
+    border: 1px solid #c9d5e0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #f6f8fa 0%, #e8edf2 100%);
+  }
+
+  .online-content {
+    max-width: 740px;
+  }
+
+  .online-content h2 {
+    margin: 8px 0 14px;
+    color: #102a4c;
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  }
+
+  .online-content p:not(.eyebrow) {
+    margin-bottom: 28px;
+    color: #4c596d;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .pro-banner {
+      padding: 36px 28px;
+    }
+
+    .pro-benefits {
+      grid-template-columns: 1fr;
+    }
+
+    .pro-syllabus {
+      padding: 32px 24px;
+    }
+
+    .pro-cta-wrap {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px;
+    }
+
+    .vocation-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .online-box {
+      padding: 36px 24px;
+    }
+  }
+</style>

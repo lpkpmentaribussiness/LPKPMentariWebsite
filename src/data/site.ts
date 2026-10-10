@@ -17,18 +17,17 @@ export const site = {
 } as const;
 
 export const programs = [
-  { title: "Komputer Office", description: "Keterampilan aplikasi perkantoran untuk kebutuhan kerja dan administrasi." },
-  { title: "Teknisi Komputer", description: "Dasar perawatan, perbaikan, dan penanganan perangkat komputer." },
-  { title: "Teknik Jaringan", description: "Instalasi, konfigurasi jaringan komputer, dan penanganan infrastruktur konektivitas." },
-  { title: "Desain Grafis", description: "Keterampilan visual dan pengolahan desain untuk kebutuhan profesional." },
-  { title: "Multimedia", description: "Produksi dan pengolahan konten audio visual, foto, dan media kreatif interaktif." },
-  { title: "Programer Web Desain", description: "Perancangan tampilan website responsif, antarmuka, dan dasar pemrograman web." },
-  { title: "Akuntansi Myob-Accurate", description: "Pencatatan dan pengelolaan akuntansi menggunakan perangkat lunak MYOB dan Accurate." },
-  { title: "Tata Boga", description: "Pelatihan keterampilan pengolahan makanan untuk kerja dan wirausaha." },
-  { title: "Tata Busana", description: "Keterampilan menjahit dan pembuatan busana untuk kompetensi kerja dan usaha mandiri." },
-  { title: "Salon Tata Rias", description: "Keterampilan tata rias wajah, perawatan kecantikan, dan tata rambut untuk wirausaha." },
-  { title: "Pengelasan", description: "Teknik pengelasan logam, keselamatan kerja bengkel, dan fabrikasi konstruksi dasar." },
-  { title: "Barista Kopi", description: "Keahlian meracik kopi, teknik seduh manual dan mesin, serta operasional bar kopi." },
+  { title: "Komputer Office", description: "Keterampilan aplikasi perkantoran (Microsoft Word, Excel, PowerPoint) untuk kebutuhan administrasi dan kompetensi dunia kerja." },
+  { title: "Teknisi Akuntansi", description: "Pencatatan dan pembukuan akuntansi terkomputerisasi (MYOB & Accurate) untuk penyusunan laporan keuangan usaha." },
+  { title: "Tata Boga", description: "Pelatihan keterampilan pengolahan makanan dan kuliner komersial untuk kebutuhan kerja dan wirausaha mandiri." },
+  { title: "Menjahit", description: "Pembuatan pola busana, teknik menjahit pakaian, dan produksi garmen siap pakai untuk wirausaha mandiri." },
+  { title: "Salon Rias Kecantikan", description: "Keterampilan tata rias wajah, perawatan kecantikan kulit, dan tata rambut profesional untuk wirausaha." },
+  { title: "Pengelasan", description: "Teknik pengelasan logam (SMAW/las listrik), keselamatan kerja bengkel, dan fabrikasi konstruksi dasar." },
+  { title: "Teknisi Komputer", description: "Perawatan, perakitan perangkat keras (hardware), instalasi sistem operasi, dan troubleshooting komputer." },
+  { title: "Teknisi Hand Phone", description: "Perbaikan perangkat keras smartphone, penggantian komponen, flashing sistem, dan penanganan kerusakan handphone." },
+  { title: "Teknisi Jaringan", description: "Instalasi dan konfigurasi jaringan komputer lokal (LAN/WLAN), routing jaringan, dan infrastruktur konektivitas." },
+  { title: "Web Desain", description: "Perancangan tampilan website responsif, antarmuka pengguna (UI/UX), dan dasar pemrograman web modern." },
+  { title: "Desain Grafis", description: "Keterampilan komunikasi visual, desain grafis vektor dan manipulasi bitmap (CorelDraw & Photoshop) untuk promosi digital." },
 ] as const;
 
 export const professionalProgram = {

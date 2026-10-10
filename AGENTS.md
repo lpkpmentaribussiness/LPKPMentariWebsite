@@ -12,8 +12,9 @@
 
 ## 🧭 Pages & Structure
 
-- **Landing Page (`/`):** `src/pages/index.astro` — Hero, Strengths (Terakreditasi B, Kurikulum Matang, Fasilitas), Program Unggulan Profesional 1 Tahun Komputer (Fasilitas Asrama & Makan 3x Sehari), 12 Program Pelatihan Vokasi, Galeri Rekam Jejak, Kontak CTA.
-- **Tentang Lembaga (`/tentang.html`):** `src/pages/tentang.astro` — Profil, Legalitas (NPSN `K5666768`, Akreditasi B BAN-PNF 2017), Visi & Misi, Sejarah berdiri (2001).
+- **Landing Page (`/`):** `src/pages/index.astro` — Hero, Strengths (Terakreditasi B, Kurikulum Matang, Fasilitas), Program Unggulan Profesional 1 Tahun Komputer (Fasilitas Asrama & Makan 3x Sehari), 11 Program Pelatihan Vokasi, Galeri Rekam Jejak, Kontak CTA.
+- **Profil Lembaga (`/tentang.html`):** `src/pages/tentang.astro` — Profil, Legalitas (NPSN `K5666768`, Akreditasi B BAN-PNF 2017), Visi & Misi, Sejarah berdiri (2001).
+- **Pelatihan Vokasi (`/pelatihan-vokasi.html`):** `src/pages/pelatihan-vokasi.astro` — Showcase Program Unggulan 1 Tahun Komputer (Asrama & Makan) dan 11 Program Pelatihan Vokasi Lembaga.
 - **Galeri Foto (`/galeri.html`):** `src/pages/galeri.astro` — Dokumentasi foto kegiatan (Prakerin SMK, Uji Kompetensi TUK, Laboratorium, Tata Busana, Pemberdayaan Masyarakat, Prestasi), Filter Kategori, Lightbox Modal, Google Maps Callout.
 - **Kontak & Lokasi (`/kontak.html`):** `src/pages/kontak.astro` — Alamat (Jl. Kutilang No. 5, Tebing Tinggi, Sumut), WhatsApp (`0813-7000-7002`), Google Maps embed/link.
 - **Error Page (`/404.html`):** `src/pages/404.astro`
