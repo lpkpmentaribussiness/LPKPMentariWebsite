@@ -13,6 +13,7 @@ export const site = {
     lms: "https://lms.lpkpmentari.id",
     blog: "https://lpkp-mentari.blogspot.com",
     marketplace: "https://marketplace.lpkpmentari.id",
+    npsn: "https://referensi.data.kemendikdasmen.go.id/pendidikan/npsn/K5666768",
   },
 } as const;
 
