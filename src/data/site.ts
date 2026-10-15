@@ -14,6 +14,7 @@ export const site = {
     blog: "https://lpkp-mentari.blogspot.com",
     marketplace: "https://marketplace.lpkpmentari.id",
     npsn: "https://referensi.data.kemendikdasmen.go.id/pendidikan/npsn/K5666768",
+    vin: "https://skillhub.kemnaker.go.id/mitra/temukan-mitra/lpk-profesional-mentari-3e4fe682-88cd-420a-8189-42c79b624e51/program?catalogue=99b95362-da3e-4cd5-894c-a91354d25e57",
   },
 } as const;
 
