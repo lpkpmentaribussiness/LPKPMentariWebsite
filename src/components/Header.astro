@@ -8,7 +8,7 @@ const currentPath = Astro.url.pathname;
 const navItems = [
   { href: "/", label: "Beranda" },
   { href: "/tentang.html", label: "Profil" },
-  { href: "/pelatihan-vokasi.html", label: "Pelatihan Vokasi" },
+  { href: "/pelatihan-vokasi.html", label: "Pendidikan & Pelatihan Vokasi" },
   { href: "/galeri.html", label: "Galeri" },
   { href: "/kontak.html", label: "Kontak" },
 ];
@@ -124,7 +124,7 @@ const isActive = (href: string) => currentPath === href;
   .desktop-nav {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: clamp(14px, 1.8vw, 24px);
   }
 
   .desktop-nav a {
@@ -136,6 +136,7 @@ const isActive = (href: string) => currentPath === href;
     font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;
+    white-space: nowrap;
     border-bottom: 2px solid transparent;
   }
 

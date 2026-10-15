@@ -1,17 +1,17 @@
 ---
-import { ArrowRight, ArrowUpRight, Bed, CircleCheckBig, GraduationCap, MonitorUp, ShieldCheck, Sparkles, Utensils, Wrench } from "@lucide/astro";
+import { ArrowRight, Bed, CircleCheckBig, GraduationCap, MonitorUp, ShieldCheck, Sparkles, Utensils, Wrench } from "@lucide/astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactCta from "../components/ContactCta.astro";
 import { professionalProgram, programs, site } from "../data/site";
 ---
 
 <BaseLayout
-  title="Pelatihan Vokasi"
-  description="11 Program Kursus dan Pelatihan Keterampilan Vokasi LPKP Mentari Kota Tebing Tinggi: Komputer Office, Teknisi Akuntansi, Tata Boga, Menjahit, Salon Rias, Pengelasan, Teknisi Komputer, Handphone, Jaringan, Web Desain, Desain Grafis."
+  title="Pendidikan & Pelatihan Vokasi"
+  description="11 Program Kursus, Pendidikan dan Pelatihan Keterampilan Vokasi LPKP Mentari Kota Tebing Tinggi: Komputer Office, Teknisi Akuntansi, Tata Boga, Menjahit, Salon Rias, Pengelasan, Teknisi Komputer, Handphone, Jaringan, Web Desain, Desain Grafis."
 >
   <header class="page-hero">
     <div class="container">
-      <p class="eyebrow">Pelatihan Vokasi LPKP Mentari</p>
+      <p class="eyebrow">Pendidikan &amp; Pelatihan Vokasi LPKP Mentari</p>
       <h1>Pilihan Program Pelatihan Keterampilan Vokasi Siap Kerja.</h1>
       <p>Kurikulum vokasi terarah berstandar kompetensi kerja, dirancang untuk membangun keahlian praktis dan kemandirian wirausaha di Kota Tebing Tinggi.</p>
     </div>
@@ -96,7 +96,7 @@ import { professionalProgram, programs, site } from "../data/site";
       <div class="section-heading reveal">
         <div>
           <p class="eyebrow">Daftar Kejuruan Resmi</p>
-          <h2 id="vocational-title">11 Program Pelatihan Vokasi Lembaga.</h2>
+          <h2 id="vocational-title">11 Program Pendidikan &amp; Pelatihan Vokasi Lembaga.</h2>
         </div>
         <p>Program kursus terstruktur dengan komposisi 70% praktik langsung dan 30% teori terapan untuk mempersiapkan peserta memasuki dunia kerja maupun wirausaha mandiri.</p>
       </div>
@@ -115,7 +115,7 @@ import { professionalProgram, programs, site } from "../data/site";
             <div class="vocation-card-footer">
               <a
                 class="vocation-action"
-                href={`https://wa.me/6281370007002?text=${encodeURIComponent(`Halo LPKP Mentari, saya ingin konsultasi pendaftaran Pelatihan Vokasi: ${program.title}.`)}`}
+                href={`https://wa.me/6281370007002?text=${encodeURIComponent(`Halo LPKP Mentari, saya ingin konsultasi pendaftaran Pendidikan & Pelatihan Vokasi: ${program.title}.`)}`}
                 target="_blank"
                 rel="noreferrer"
               >
