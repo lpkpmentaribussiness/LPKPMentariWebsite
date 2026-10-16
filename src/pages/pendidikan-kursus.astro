@@ -1,0 +1,616 @@
+---
+import {
+  ArrowRight,
+  Award,
+  Bed,
+  BookOpen,
+  BriefcaseBusiness,
+  CheckCircle2,
+  CircleCheckBig,
+  FileText,
+  GraduationCap,
+  Sparkles,
+  Utensils,
+  Wrench,
+} from "@lucide/astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactCta from "../components/ContactCta.astro";
+import { professionalProgram, site } from "../data/site";
+---
+
+<BaseLayout
+  title="Pendidikan Kursus 1 Tahun Komputer"
+  description="Program Pendidikan Kursus Profesional 1 Tahun Komputer LPKP Mentari Kota Tebing Tinggi. Fasilitas tempat tinggal / asrama gratis, makan 3x sehari, 5 materi kompetensi keahlian terpadu, dan siap kerja."
+>
+  <header class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Pendidikan Kursus 1 Tahun LPKP Mentari</p>
+      <h1>Program Profesional 1 Tahun Komputer: Siap Kerja &amp; Wirausaha Mandiri.</h1>
+      <p>Pendidikan keahlian komputer terpadu dan intensif 1 tahun berorientasi karir industri dengan fasilitas tempat tinggal / asrama gratis dan konsumsi makan 3x sehari di Kota Tebing Tinggi.</p>
+    </div>
+  </header>
+
+  <!-- Showcase Program Unggulan 1 Tahun -->
+  <section class="section pro-program" id="program-1-tahun" aria-labelledby="pro-title">
+    <div class="container">
+      <div class="pro-card reveal">
+        <div class="pro-banner">
+          <div class="pro-banner-content">
+            <span class="pro-badge"><Sparkles size={15} aria-hidden="true" /> {professionalProgram.badge}</span>
+            <h2 id="pro-title">{professionalProgram.title}</h2>
+            <p class="pro-desc">{professionalProgram.description}</p>
+            <div class="pro-benefits">
+              {professionalProgram.benefits.map((b) => (
+                <div class="pro-benefit-item">
+                  <div class="pro-benefit-icon">
+                    {b.title.includes("Tempat Tinggal") ? (
+                      <Bed size={22} aria-hidden="true" />
+                    ) : b.title.includes("Makan") ? (
+                      <Utensils size={22} aria-hidden="true" />
+                    ) : (
+                      <GraduationCap size={22} aria-hidden="true" />
+                    )}
+                  </div>
+                  <div>
+                    <strong>{b.title}</strong>
+                    <p>{b.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="pro-syllabus">
+          <div class="pro-syllabus-head">
+            <p class="eyebrow">Kurikulum Komprehensif</p>
+            <h3>5 Materi Kompetensi Keahlian Terpadu (1 Tahun)</h3>
+            <p class="pro-syllabus-sub">Materi disusun secara bertahap mulai dari pemahaman fondasi sistem komputer, administrasi perkantoran, desain grafis, pemrograman web, hingga kemandirian wirausaha dan praktik kerja lapangan (PKL).</p>
+          </div>
+          <div class="pro-modules-grid">
+            {professionalProgram.modules.map((m) => (
+              <div class="pro-module-card">
+                <div class="pro-module-num">Materi Kompetensi {m.number}</div>
+                <h4>{m.title}</h4>
+                <ul>
+                  {m.topics.map((t) => (
+                    <li>
+                      <CircleCheckBig size={16} aria-hidden="true" />
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div class="pro-cta-wrap">
+            <div class="pro-cta-info">
+              <strong>Pendaftaran Program Profesional 1 Tahun Dibuka</strong>
+              <p>Fasilitas asrama tempat tinggal dan makan 3x sehari disediakan penuh. Konsultasikan syarat dan proses pendaftaran langsung via WhatsApp resmi kami.</p>
+            </div>
+            <a
+              class="button button--primary"
+              href={`https://wa.me/6281370007002?text=${encodeURIComponent("Halo LPKP Mentari, saya ingin konsultasi dan mendaftar Program Pendidikan Kursus Profesional 1 Tahun Komputer (Fasilitas Asrama & Makan 3x Sehari).")}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Konsultasi via WhatsApp <ArrowRight size={18} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alur Pendidikan & Persyaratan Asrama -->
+  <section class="section section--white" aria-labelledby="flow-title">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">Alur &amp; Persyaratan</p>
+          <h2 id="flow-title">Tahapan Mengikuti Pendidikan Kursus 1 Tahun.</h2>
+        </div>
+        <p>Proses pendaftaran terbuka bagi lulusan SMA/SMK/MA/Sederajat maupun umum yang ingin memiliki keterampilan komputer aplikatif siap kerja.</p>
+      </div>
+
+      <div class="flow-grid">
+        <div class="flow-card reveal">
+          <div class="flow-step">01</div>
+          <h3>Konsultasi &amp; Pendaftaran</h3>
+          <p>Hubungi admin melalui WhatsApp atau datang langsung ke kampus LPKP Mentari untuk mengisi formulir pendaftaran.</p>
+        </div>
+        <div class="flow-card reveal">
+          <div class="flow-step">02</div>
+          <h3>Verifikasi Berkas</h3>
+          <p>Serahkan dokumen kelengkapan (fotokopi ijazah/SKL, KTP/KK, dan pas foto terbaru) untuk pencatatan registrasi.</p>
+        </div>
+        <div class="flow-card reveal">
+          <div class="flow-step">03</div>
+          <h3>Penempatan Asrama</h3>
+          <p>Bagi peserta luar kota atau yang memilih asrama, fasilitas tempat tinggal dan konsumsi makan 3x sehari langsung disiapkan.</p>
+        </div>
+        <div class="flow-card reveal">
+          <div class="flow-step">04</div>
+          <h3>Pembelajaran &amp; PKL</h3>
+          <p>Mengikuti pembelajaran 5 materi kompetensi, pembekalan industri, dan penempatan Praktek Kerja Lapangan (PKL).</p>
+        </div>
+      </div>
+
+      <div class="requirements-box reveal">
+        <div class="requirements-header">
+          <FileText size={24} aria-hidden="true" />
+          <div>
+            <h3>Persyaratan Calon Peserta</h3>
+            <p>Kelengkapan berkas yang perlu disiapkan saat mendaftar:</p>
+          </div>
+        </div>
+        <ul class="requirements-list">
+          <li><CheckCircle2 size={18} aria-hidden="true" /> Fotokopi Ijazah / SKL (SMA/SMK/Sederajat) 2 lembar</li>
+          <li><CheckCircle2 size={18} aria-hidden="true" /> Fotokopi KTP / Kartu Keluarga (KK) 2 lembar</li>
+          <li><CheckCircle2 size={18} aria-hidden="true" /> Pas foto berwarna terbaru ukuran 3x4 dan 4x6 masing-masing 2 lembar</li>
+          <li><CheckCircle2 size={18} aria-hidden="true" /> Berkomitmen mematuhi tata tertib pembelajaran &amp; asrama pelatihan</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keunggulan Program 1 Tahun -->
+  <section class="section advantages" aria-labelledby="advantages-title">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">Keunggulan Lembaga</p>
+          <h2 id="advantages-title">Mengapa Memilih Pendidikan Kursus di LPKP Mentari?</h2>
+        </div>
+        <p>Berpengalaman lebih dari 20 tahun mendidik generasi kompeten dan mandiri di bidang teknologi komputer.</p>
+      </div>
+
+      <div class="advantages-grid">
+        <div class="advantage-card reveal">
+          <div class="advantage-icon"><Bed size={26} aria-hidden="true" /></div>
+          <h3>Fasilitas Lengkap &amp; Terpadu</h3>
+          <p>Tempat tinggal / asrama gratis dan makan 3x sehari disediakan penuh agar peserta dapat berkonsentrasi penuh pada pembelajaran.</p>
+        </div>
+        <div class="advantage-card reveal">
+          <div class="advantage-icon"><Wrench size={26} aria-hidden="true" /></div>
+          <h3>Lab Komputer Modern</h3>
+          <p>Laboratorium berpendingin udara (AC) dengan perangkat komputer yang selalu diperbarui dan akses jaringan internet cepat.</p>
+        </div>
+        <div class="advantage-card reveal">
+          <div class="advantage-icon"><BriefcaseBusiness size={26} aria-hidden="true" /></div>
+          <h3>Praktek Kerja Lapangan (PKL)</h3>
+          <p>Penyaluran magang di instansi mitra dan dunia usaha untuk membangun pengalaman nyata dan portofolio profesional sebelum lulus.</p>
+        </div>
+        <div class="advantage-card reveal">
+          <div class="advantage-icon"><Award size={26} aria-hidden="true" /></div>
+          <h3>Sertifikat Resmi &amp; Legalitas</h3>
+          <p>Lembaga terakreditasi B (BAN-PNF 2017) dan memiliki NPSN resmi K5666768 serta registrasi Kemnaker VIN 1911127401.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Reguler / Pelatihan Vokasi Callout -->
+  <section class="section section--white vocation-callout" aria-labelledby="vocation-callout-title">
+    <div class="container">
+      <div class="vocation-callout-card reveal">
+        <div>
+          <p class="eyebrow">Mencari Program Pelatihan Singkat / Kejuruan Lain?</p>
+          <h2 id="vocation-callout-title">Tersedia 11 Program Pelatihan Vokasi Keterampilan Kerja.</h2>
+          <p>Jika Anda membutuhkan pelatihan dengan durasi lebih singkat untuk kejuruan tertentu (Komputer Office, Teknisi Komputer, Desain Grafis, Menjahit, Tata Boga, Pengelasan, dll.), silakan jelajahi tab Pelatihan Vokasi.</p>
+        </div>
+        <a class="button button--secondary" href="/pelatihan-vokasi.html">
+          Lihat Pelatihan Vokasi <ArrowRight size={18} aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <ContactCta />
+</BaseLayout>
+
+<style>
+  /* Program 1 Tahun Showcase */
+  .pro-program {
+    padding: 60px 0 80px;
+    background: #eef2f6;
+  }
+
+  .pro-card {
+    overflow: hidden;
+    border: 1px solid #c9d5e0;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 16px 40px -12px rgb(9 26 48 / 10%);
+  }
+
+  .pro-banner {
+    position: relative;
+    padding: 56px 48px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #091a30 0%, #102a4c 55%, #0b7479 100%);
+  }
+
+  .pro-banner-content {
+    max-width: 960px;
+  }
+
+  .pro-badge {
+    display: inline-flex;
+    gap: 7px;
+    align-items: center;
+    padding: 6px 14px;
+    margin-bottom: 20px;
+    color: #091a30;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    background: #f0c758;
+  }
+
+  .pro-banner h2 {
+    margin-bottom: 16px;
+    color: #ffffff;
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    line-height: 1.15;
+  }
+
+  .pro-desc {
+    max-width: 740px;
+    margin-bottom: 36px;
+    color: #d6e3ee;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .pro-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .pro-benefit-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 18px 20px;
+    border: 1px solid rgb(255 255 255 / 15%);
+    border-radius: 12px;
+    background: rgb(255 255 255 / 8%);
+    backdrop-filter: blur(8px);
+  }
+
+  .pro-benefit-icon {
+    display: grid;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    color: #091a30;
+    border-radius: 10px;
+    background: #f0c758;
+  }
+
+  .pro-benefit-item strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #ffffff;
+    font-size: 0.96rem;
+  }
+
+  .pro-benefit-item p {
+    margin: 0;
+    color: #c0d1e0;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .pro-syllabus {
+    padding: 48px;
+    background: #ffffff;
+  }
+
+  .pro-syllabus-head {
+    margin-bottom: 32px;
+  }
+
+  .pro-syllabus-head h3 {
+    margin: 6px 0 10px;
+    color: #172339;
+    font-size: 1.65rem;
+  }
+
+  .pro-syllabus-sub {
+    max-width: 720px;
+    margin: 0;
+    color: #4c596d;
+    font-size: 0.95rem;
+  }
+
+  .pro-modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .pro-module-card {
+    padding: 24px;
+    border: 1px solid #dce2e8;
+    border-radius: 14px;
+    background: #f8fafc;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .pro-module-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -6px rgb(9 26 48 / 8%);
+  }
+
+  .pro-module-num {
+    display: inline-block;
+    padding: 3px 10px;
+    margin-bottom: 12px;
+    color: #0b7479;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 6px;
+    background: #e3f2f3;
+  }
+
+  .pro-module-card h4 {
+    margin-bottom: 14px;
+    color: #102a4c;
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+
+  .pro-module-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .pro-module-card li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: #4c596d;
+    font-size: 0.86rem;
+    line-height: 1.4;
+  }
+
+  .pro-module-card li svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #0b7479;
+  }
+
+  .pro-cta-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 32px;
+    margin-top: 36px;
+    border: 1px solid #c9d5e0;
+    border-radius: 14px;
+    background: #f0f4f8;
+  }
+
+  .pro-cta-info {
+    max-width: 600px;
+  }
+
+  .pro-cta-info strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #102a4c;
+    font-size: 1.05rem;
+  }
+
+  .pro-cta-info p {
+    margin: 0;
+    color: #4c596d;
+    font-size: 0.88rem;
+  }
+
+  /* Alur Pendidikan */
+  .flow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .flow-card {
+    position: relative;
+    padding: 28px 24px;
+    border: 1px solid #dce2e8;
+    border-radius: 14px;
+    background: #f8fafc;
+  }
+
+  .flow-step {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 14px;
+    color: #0b7479;
+    font-size: 0.85rem;
+    font-weight: 800;
+    border-radius: 6px;
+    background: #e3f2f3;
+  }
+
+  .flow-card h3 {
+    margin-bottom: 8px;
+    color: #102a4c;
+    font-size: 1.08rem;
+  }
+
+  .flow-card p {
+    margin: 0;
+    color: #4c596d;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  /* Persyaratan Box */
+  .requirements-box {
+    padding: 32px;
+    margin-top: 40px;
+    border: 1px solid #c9d5e0;
+    border-radius: 16px;
+    background: #f0f4f8;
+  }
+
+  .requirements-header {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    color: #0b7479;
+  }
+
+  .requirements-header h3 {
+    margin: 0 0 4px;
+    color: #102a4c;
+    font-size: 1.15rem;
+  }
+
+  .requirements-header p {
+    margin: 0;
+    color: #4c596d;
+    font-size: 0.9rem;
+  }
+
+  .requirements-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .requirements-list li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #172339;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .requirements-list li svg {
+    flex-shrink: 0;
+    color: #0b7479;
+  }
+
+  /* Keunggulan Grid */
+  .advantages {
+    background: #f4f7fa;
+  }
+
+  .advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .advantage-card {
+    padding: 28px;
+    border: 1px solid #dce2e8;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 4px 16px -4px rgb(9 26 48 / 5%);
+  }
+
+  .advantage-icon {
+    display: grid;
+    width: 52px;
+    height: 52px;
+    place-items: center;
+    margin-bottom: 18px;
+    color: #0b7479;
+    border-radius: 12px;
+    background: #e3f2f3;
+  }
+
+  .advantage-card h3 {
+    margin-bottom: 10px;
+    color: #102a4c;
+    font-size: 1.1rem;
+  }
+
+  .advantage-card p {
+    margin: 0;
+    color: #4c596d;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  /* Callout Pelatihan Vokasi */
+  .vocation-callout-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 44px;
+    border: 1px solid #cbd8e5;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f7f9fc 0%, #eef3f7 100%);
+  }
+
+  .vocation-callout-card div {
+    max-width: 680px;
+  }
+
+  .vocation-callout-card h2 {
+    margin: 6px 0 10px;
+    color: #102a4c;
+    font-size: 1.45rem;
+  }
+
+  .vocation-callout-card p {
+    margin: 0;
+    color: #4c596d;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 860px) {
+    .pro-banner {
+      padding: 36px 24px;
+    }
+
+    .pro-syllabus {
+      padding: 32px 20px;
+    }
+
+    .pro-benefits {
+      grid-template-columns: 1fr;
+    }
+
+    .pro-cta-wrap {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .vocation-callout-card {
+      padding: 28px 24px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

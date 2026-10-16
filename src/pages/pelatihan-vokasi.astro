@@ -1,104 +1,47 @@
 ---
-import { ArrowRight, Bed, CircleCheckBig, GraduationCap, MonitorUp, ShieldCheck, Sparkles, Utensils, Wrench } from "@lucide/astro";
+import { ArrowRight, CircleCheckBig, GraduationCap, MonitorUp, ShieldCheck, Sparkles, Wrench } from "@lucide/astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactCta from "../components/ContactCta.astro";
-import { professionalProgram, programs, site } from "../data/site";
+import { programs, site } from "../data/site";
 ---
 
 <BaseLayout
-  title="Pendidikan & Pelatihan Vokasi"
-  description="11 Program Kursus, Pendidikan dan Pelatihan Keterampilan Vokasi LPKP Mentari Kota Tebing Tinggi: Komputer Office, Teknisi Akuntansi, Tata Boga, Menjahit, Salon Rias, Pengelasan, Teknisi Komputer, Handphone, Jaringan, Web Desain, Desain Grafis."
+  title="Pelatihan Vokasi Keterampilan Kerja"
+  description="11 Program Pelatihan Keterampilan Vokasi LPKP Mentari Kota Tebing Tinggi: Komputer Office, Teknisi Akuntansi, Tata Boga, Menjahit, Salon Rias, Pengelasan, Teknisi Komputer, Handphone, Jaringan, Web Desain, Desain Grafis."
 >
   <header class="page-hero">
     <div class="container">
-      <p class="eyebrow">Pendidikan &amp; Pelatihan Vokasi LPKP Mentari</p>
+      <p class="eyebrow">Pelatihan Vokasi LPKP Mentari</p>
       <h1>Pilihan Program Pelatihan Keterampilan Vokasi Siap Kerja.</h1>
-      <p>Kurikulum vokasi terarah berstandar kompetensi kerja, dirancang untuk membangun keahlian praktis dan kemandirian wirausaha di Kota Tebing Tinggi.</p>
+      <p>Kurikulum vokasi terarah berstandar kompetensi kerja, dirancang untuk membangun keahlian praktis dan kemandirian wirausaha dalam waktu fleksibel di Kota Tebing Tinggi.</p>
     </div>
   </header>
 
-  <!-- Showcase Program Unggulan 1 Tahun -->
-  <section class="section pro-program" id="program-1-tahun" aria-labelledby="pro-title">
+  <!-- Banner Referensi Program 1 Tahun -->
+  <section class="section pro-callout-section">
     <div class="container">
-      <div class="pro-card reveal">
-        <div class="pro-banner">
-          <div class="pro-banner-content">
-            <span class="pro-badge"><Sparkles size={15} aria-hidden="true" /> {professionalProgram.badge}</span>
-            <h2 id="pro-title">{professionalProgram.title}</h2>
-            <p class="pro-desc">{professionalProgram.description}</p>
-            <div class="pro-benefits">
-              {professionalProgram.benefits.map((b) => (
-                <div class="pro-benefit-item">
-                  <div class="pro-benefit-icon">
-                    {b.title.includes("Tempat Tinggal") ? (
-                      <Bed size={22} aria-hidden="true" />
-                    ) : b.title.includes("Makan") ? (
-                      <Utensils size={22} aria-hidden="true" />
-                    ) : (
-                      <GraduationCap size={22} aria-hidden="true" />
-                    )}
-                  </div>
-                  <div>
-                    <strong>{b.title}</strong>
-                    <p>{b.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+      <div class="pro-callout-box reveal">
+        <div class="pro-callout-text">
+          <span class="pro-callout-badge"><Sparkles size={15} aria-hidden="true" /> Program Pendidikan 1 Tahun</span>
+          <h2>Mencari Pendidikan Komputer Intensif 1 Tahun Lengkap dengan Asrama?</h2>
+          <p>Tersedia Program Profesional 1 Tahun Komputer dengan fasilitas tempat tinggal / asrama gratis dan makan 3x sehari untuk membina karir dan wirausaha mandiri.</p>
         </div>
-
-        <div class="pro-syllabus">
-          <div class="pro-syllabus-head">
-            <p class="eyebrow">Kompetensi Vokasi</p>
-            <h3>5 Materi Kompetensi Keahlian Terpadu (1 Tahun)</h3>
-            <p class="pro-syllabus-sub">Kurikulum komprehensif mulai dari pemahaman fondasi sistem hingga praktek kerja lapangan &amp; portofolio.</p>
-          </div>
-          <div class="pro-modules-grid">
-            {professionalProgram.modules.map((m) => (
-              <div class="pro-module-card">
-                <div class="pro-module-num">Materi Kompetensi {m.number}</div>
-                <h4>{m.title}</h4>
-                <ul>
-                  {m.topics.map((t) => (
-                    <li>
-                      <CircleCheckBig size={16} aria-hidden="true" />
-                      <span>{t}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div class="pro-cta-wrap">
-            <div class="pro-cta-info">
-              <strong>Pendaftaran Program Profesional 1 Tahun Dibuka</strong>
-              <p>Fasilitas asrama tempat tinggal dan makan 3x sehari disediakan. Konsultasikan syarat dan pendaftaran langsung via WhatsApp resmi.</p>
-            </div>
-            <a
-              class="button button--primary"
-              href={`https://wa.me/6281370007002?text=${encodeURIComponent("Halo LPKP Mentari, saya ingin konsultasi dan mendaftar Program Profesional 1 Tahun Komputer (Fasilitas Tempat Tinggal & Makan 3x Sehari).")}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Konsultasi via WhatsApp <ArrowRight size={18} aria-hidden="true" />
-            </a>
-          </div>
-        </div>
+        <a class="button button--secondary" href="/pendidikan-kursus.html">
+          Lihat Pendidikan Kursus 1 Tahun <ArrowRight size={18} aria-hidden="true" />
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- 11 Program Pelatihan Vokasi -->
-  <section class="section section--white" id="program-reguler" aria-labelledby="vocational-title">
+  <!-- 11 Program Pelatihan Vokasi Kejuruan -->
+  <section class="section section--white" id="program-kejuruan" aria-labelledby="vocational-title">
     <div class="container">
       <div class="section-heading reveal">
         <div>
           <p class="eyebrow">Daftar Kejuruan Resmi</p>
-          <h2 id="vocational-title">11 Program Pendidikan &amp; Pelatihan Vokasi Lembaga.</h2>
+          <h2 id="vocational-title">11 Program Pelatihan Keterampilan Vokasi.</h2>
         </div>
-        <p>Program kursus terstruktur dengan komposisi 70% praktik langsung dan 30% teori terapan untuk mempersiapkan peserta memasuki dunia kerja maupun wirausaha mandiri.</p>
+        <p>Program kursus terstruktur dengan komposisi 70% praktik langsung dan 30% teori terapan untuk mempersiapkan peserta memasuki dunia kerja maupun membuka usaha mandiri.</p>
       </div>
 
       <div class="vocation-grid">
@@ -115,7 +58,7 @@ import { professionalProgram, programs, site } from "../data/site";
             <div class="vocation-card-footer">
               <a
                 class="vocation-action"
-                href={`https://wa.me/6281370007002?text=${encodeURIComponent(`Halo LPKP Mentari, saya ingin konsultasi pendaftaran Pendidikan & Pelatihan Vokasi: ${program.title}.`)}`}
+                href={`https://wa.me/6281370007002?text=${encodeURIComponent(`Halo LPKP Mentari, saya ingin konsultasi pendaftaran Pelatihan Vokasi: ${program.title}.`)}`}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -129,15 +72,15 @@ import { professionalProgram, programs, site } from "../data/site";
     </div>
   </section>
 
-  <!-- Metode & Keunggulan Pelatihan -->
+  <!-- Metode & Keunggulan Pelatihan Vokasi -->
   <section class="section advantages" aria-labelledby="advantages-title">
     <div class="container">
       <div class="section-heading reveal">
         <div>
           <p class="eyebrow">Metode Pembelajaran</p>
-          <h2 id="advantages-title">Standar Kualitas Vokasi LPKP Mentari.</h2>
+          <h2 id="advantages-title">Standar Kualitas Pelatihan Vokasi LPKP Mentari.</h2>
         </div>
-        <p>Didukung pengalaman menyelenggarakan pendidikan keterampilan kerja sejak 2001 di Kota Tebing Tinggi.</p>
+        <p>Didukung pengalaman menyelenggarakan pendidikan dan pelatihan keterampilan kerja sejak 2001 di Kota Tebing Tinggi.</p>
       </div>
 
       <div class="advantages-grid">
@@ -149,12 +92,12 @@ import { professionalProgram, programs, site } from "../data/site";
         <div class="advantage-card reveal">
           <div class="advantage-icon"><ShieldCheck size={26} aria-hidden="true" /></div>
           <h3>Terakreditasi &amp; Legalitas Resmi</h3>
-          <p>Terakreditasi B (BAN-PNF 2017), memiliki NPSN K5666768, dan teregistrasi resmi di Kementerian Pendidikan serta Kementerian Tenaga Kerja.</p>
+          <p>Terakreditasi B (BAN-PNF 2017), memiliki NPSN K5666768, dan teregistrasi resmi di Kementerian Pendidikan serta Kementerian Tenaga Kerja (VIN 1911127401).</p>
         </div>
         <div class="advantage-card reveal">
           <div class="advantage-icon"><Wrench size={26} aria-hidden="true" /></div>
           <h3>Fasilitas Praktik Terpadu</h3>
-          <p>Laboratorium komputer AC, bengkel las keselamatan kerja, studio jahit, dan perlengkapan tata rias lengkap untuk menunjang pembelajaran optimal.</p>
+          <p>Laboratorium komputer AC, bengkel las standar keselamatan kerja, studio jahit, dan perlengkapan tata rias lengkap untuk menunjang pembelajaran optimal.</p>
         </div>
         <div class="advantage-card reveal">
           <div class="advantage-icon"><GraduationCap size={26} aria-hidden="true" /></div>
@@ -185,39 +128,37 @@ import { professionalProgram, programs, site } from "../data/site";
 </BaseLayout>
 
 <style>
-  /* Program Unggulan 1 Tahun */
-  .pro-program {
-    padding: 60px 0 80px;
-    background: #eef2f6;
+  /* Banner Referensi Program 1 Tahun */
+  .pro-callout-section {
+    padding: 40px 0 0;
   }
 
-  .pro-card {
-    overflow: hidden;
-    border: 1px solid #c9d5e0;
-    border-radius: 20px;
-    background: #ffffff;
-    box-shadow: 0 16px 40px -12px rgb(9 26 48 / 10%);
-  }
-
-  .pro-banner {
-    position: relative;
-    padding: 56px 48px;
-    color: #ffffff;
-    background: linear-gradient(135deg, #091a30 0%, #102a4c 55%, #0b7479 100%);
-  }
-
-  .pro-banner-content {
-    max-width: 960px;
-  }
-
-  .pro-badge {
-    display: inline-flex;
-    gap: 7px;
+  .pro-callout-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
     align-items: center;
-    padding: 6px 14px;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    padding: 36px 44px;
+    border: 1px solid #c9d5e0;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #091a30 0%, #102a4c 55%, #0b7479 100%);
+    color: #ffffff;
+    box-shadow: 0 12px 32px -8px rgb(9 26 48 / 12%);
+  }
+
+  .pro-callout-text {
+    max-width: 680px;
+  }
+
+  .pro-callout-badge {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    padding: 5px 12px;
+    margin-bottom: 14px;
     color: #091a30;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -225,176 +166,18 @@ import { professionalProgram, programs, site } from "../data/site";
     background: #f0c758;
   }
 
-  .pro-banner h2 {
-    margin-bottom: 16px;
+  .pro-callout-text h2 {
+    margin: 0 0 10px;
     color: #ffffff;
-    font-size: clamp(2rem, 3.8vw, 3rem);
-    line-height: 1.15;
+    font-size: 1.45rem;
+    line-height: 1.25;
   }
 
-  .pro-desc {
-    max-width: 740px;
-    margin-bottom: 36px;
+  .pro-callout-text p {
+    margin: 0;
     color: #d6e3ee;
-    font-size: 1.05rem;
-    line-height: 1.6;
-  }
-
-  .pro-benefits {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-
-  .pro-benefit-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    padding: 18px 20px;
-    border: 1px solid rgb(255 255 255 / 15%);
-    border-radius: 12px;
-    background: rgb(255 255 255 / 8%);
-    backdrop-filter: blur(8px);
-  }
-
-  .pro-benefit-icon {
-    display: grid;
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    place-items: center;
-    color: #091a30;
-    border-radius: 10px;
-    background: #f0c758;
-  }
-
-  .pro-benefit-item strong {
-    display: block;
-    margin-bottom: 4px;
-    color: #ffffff;
-    font-size: 0.96rem;
-  }
-
-  .pro-benefit-item p {
-    margin: 0;
-    color: #c0d1e0;
-    font-size: 0.82rem;
-    line-height: 1.45;
-  }
-
-  .pro-syllabus {
-    padding: 48px;
-    background: #ffffff;
-  }
-
-  .pro-syllabus-head {
-    margin-bottom: 32px;
-  }
-
-  .pro-syllabus-head h3 {
-    margin: 6px 0 10px;
-    color: #172339;
-    font-size: 1.65rem;
-  }
-
-  .pro-syllabus-sub {
-    max-width: 700px;
-    margin: 0;
-    color: #4c596d;
-    font-size: 0.95rem;
-  }
-
-  .pro-modules-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
-
-  .pro-module-card {
-    padding: 24px;
-    border: 1px solid #dce2e8;
-    border-radius: 14px;
-    background: #f8fafc;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .pro-module-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px -6px rgb(9 26 48 / 8%);
-  }
-
-  .pro-module-num {
-    display: inline-block;
-    padding: 3px 10px;
-    margin-bottom: 12px;
-    color: #0b7479;
-    font-size: 0.76rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    border-radius: 6px;
-    background: #e3f2f3;
-  }
-
-  .pro-module-card h4 {
-    margin-bottom: 14px;
-    color: #102a4c;
-    font-size: 1.05rem;
-    line-height: 1.35;
-  }
-
-  .pro-module-card ul {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .pro-module-card li {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    color: #4c596d;
-    font-size: 0.86rem;
-    line-height: 1.4;
-  }
-
-  .pro-module-card li svg {
-    flex-shrink: 0;
-    margin-top: 2px;
-    color: #0b7479;
-  }
-
-  .pro-cta-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 28px 32px;
-    margin-top: 36px;
-    border: 1px solid #c9d5e0;
-    border-radius: 14px;
-    background: #f0f4f8;
-  }
-
-  .pro-cta-info {
-    max-width: 600px;
-  }
-
-  .pro-cta-info strong {
-    display: block;
-    margin-bottom: 4px;
-    color: #102a4c;
-    font-size: 1.05rem;
-  }
-
-  .pro-cta-info p {
-    margin: 0;
-    color: #4c596d;
-    font-size: 0.88rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
   }
 
   /* Grid 11 Kejuruan */
@@ -448,129 +231,128 @@ import { professionalProgram, programs, site } from "../data/site";
 
   .vocation-card-body {
     flex: 1;
-    margin-bottom: 24px;
   }
 
   .vocation-card-body h3 {
-    margin-bottom: 10px;
-    color: #102a4c;
-    font-size: 1.25rem;
-    line-height: 1.3;
+    margin: 0 0 10px;
+    color: #172339;
+    font-size: 1.2rem;
+    line-height: 1.35;
   }
 
   .vocation-card-body p {
-    margin: 0;
+    margin: 0 0 20px;
     color: #4c596d;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     line-height: 1.55;
   }
 
   .vocation-card-footer {
     padding-top: 16px;
-    border-top: 1px solid #edf1f4;
+    border-top: 1px solid #eef2f6;
   }
 
   .vocation-action {
     display: inline-flex;
-    gap: 8px;
     align-items: center;
+    gap: 8px;
     color: #0b7479;
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;
-    transition: gap 0.2s ease;
+    transition: color 0.15s ease, gap 0.15s ease;
   }
 
   .vocation-action:hover {
+    color: #085559;
     gap: 12px;
-    color: #102a4c;
   }
 
-  /* Advantages */
+  /* Keunggulan & Metode */
   .advantages {
-    background: #edf1f4;
+    background: #f4f7fa;
   }
 
   .advantages-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 28px;
-    margin-top: 40px;
+    margin-top: 48px;
   }
 
   .advantage-card {
-    padding: 28px;
-    border-radius: 14px;
+    padding: 32px 28px;
+    border: 1px solid #dce2e8;
+    border-radius: 16px;
     background: #ffffff;
-    box-shadow: 0 4px 12px -2px rgb(9 26 48 / 6%);
+    box-shadow: 0 4px 16px -4px rgb(9 26 48 / 5%);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .advantage-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px -6px rgb(9 26 48 / 10%);
   }
 
   .advantage-icon {
     display: grid;
-    width: 48px;
-    height: 48px;
-    margin-bottom: 18px;
+    width: 52px;
+    height: 52px;
     place-items: center;
+    margin-bottom: 20px;
     color: #0b7479;
     border-radius: 12px;
     background: #e3f2f3;
   }
 
   .advantage-card h3 {
-    margin-bottom: 10px;
-    color: #102a4c;
+    margin: 0 0 10px;
+    color: #172339;
     font-size: 1.15rem;
+    line-height: 1.35;
   }
 
   .advantage-card p {
     margin: 0;
     color: #4c596d;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     line-height: 1.55;
   }
 
   /* Online Callout */
+  .online-callout {
+    padding-bottom: 80px;
+  }
+
   .online-box {
-    padding: 56px 48px;
-    border: 1px solid #c9d5e0;
+    padding: 48px;
+    border: 1px solid #dce2e8;
     border-radius: 20px;
-    background: linear-gradient(135deg, #f6f8fa 0%, #e8edf2 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
   }
 
   .online-content {
-    max-width: 740px;
+    max-width: 680px;
   }
 
   .online-content h2 {
     margin: 8px 0 14px;
-    color: #102a4c;
-    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    color: #172339;
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
   }
 
-  .online-content p:not(.eyebrow) {
-    margin-bottom: 28px;
+  .online-content p {
+    margin: 0 0 24px;
     color: #4c596d;
-    font-size: 1rem;
+    font-size: 0.98rem;
     line-height: 1.6;
   }
 
-  @media (max-width: 900px) {
-    .pro-banner {
-      padding: 36px 28px;
-    }
-
-    .pro-benefits {
-      grid-template-columns: 1fr;
-    }
-
-    .pro-syllabus {
-      padding: 32px 24px;
-    }
-
-    .pro-cta-wrap {
+  @media (max-width: 860px) {
+    .pro-callout-box {
+      padding: 28px 24px;
       flex-direction: column;
       align-items: flex-start;
-      padding: 24px;
     }
 
     .vocation-grid {
@@ -578,7 +360,7 @@ import { professionalProgram, programs, site } from "../data/site";
     }
 
     .online-box {
-      padding: 36px 24px;
+      padding: 32px 24px;
     }
   }
 </style>
