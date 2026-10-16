@@ -51,13 +51,13 @@ import { professionalProgram, programs, site } from "../data/site";
         <div class="pro-syllabus">
           <div class="pro-syllabus-head">
             <p class="eyebrow">Kompetensi Vokasi</p>
-            <h3>5 Modul Keahlian Terpadu (1 Tahun)</h3>
+            <h3>5 Materi Kompetensi Keahlian Terpadu (1 Tahun)</h3>
             <p class="pro-syllabus-sub">Kurikulum komprehensif mulai dari pemahaman fondasi sistem hingga praktek kerja lapangan &amp; portofolio.</p>
           </div>
           <div class="pro-modules-grid">
             {professionalProgram.modules.map((m) => (
               <div class="pro-module-card">
-                <div class="pro-module-num">Modul {m.number}</div>
+                <div class="pro-module-num">Materi Kompetensi {m.number}</div>
                 <h4>{m.title}</h4>
                 <ul>
                   {m.topics.map((t) => (

@@ -54,7 +54,7 @@ export const professionalProgram = {
   ],
   modules: [
     {
-      number: "01",
+      number: "1",
       title: "Dasar Komputer dan Sistem Operasi",
       topics: [
         "Hardware & Software (CPU, RAM, Harddisk)",
@@ -63,7 +63,7 @@ export const professionalProgram = {
       ],
     },
     {
-      number: "02",
+      number: "2",
       title: "Aplikasi Perkantoran",
       topics: [
         "Microsoft Word",
@@ -72,7 +72,7 @@ export const professionalProgram = {
       ],
     },
     {
-      number: "03",
+      number: "3",
       title: "Desain Grafis",
       topics: [
         "Aplikasi Desain (CorelDraw dan Photoshop)",
@@ -80,7 +80,7 @@ export const professionalProgram = {
       ],
     },
     {
-      number: "04",
+      number: "4",
       title: "Pemrograman dan Pengembangan Web",
       topics: [
         "Logika Program Dasar",
@@ -88,7 +88,7 @@ export const professionalProgram = {
       ],
     },
     {
-      number: "05",
+      number: "5",
       title: "Keahlian Wirausaha",
       topics: [
         "Digital Marketing (Pemasaran Online & Media Sosial)",
