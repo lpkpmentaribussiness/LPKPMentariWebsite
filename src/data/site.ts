@@ -7,7 +7,7 @@ export const site = {
   whatsapp: "https://wa.me/6281370007002",
   email: "lpkp.mentari@gmail.com",
   address: "Jl. Kutilang No. 5, Lingkungan 06, Kelurahan Bulian, Kecamatan Bajenis, Kota Tebing Tinggi, Sumatera Utara",
-  maps: "https://share.google/EkuPl27dahufrkmT0",
+  maps: "https://maps.app.goo.gl/5XGWats4Nut4Prig9?g_st=ic",
   links: {
     course: "https://course.lpkpmentari.id",
     lms: "https://lms.lpkpmentari.id",
@@ -16,6 +16,7 @@ export const site = {
     npsn: "https://referensi.data.kemendikdasmen.go.id/pendidikan/npsn/K5666768",
     vin: "https://skillhub.kemnaker.go.id/mitra/temukan-mitra/lpk-profesional-mentari-3e4fe682-88cd-420a-8189-42c79b624e51/program?catalogue=99b95362-da3e-4cd5-894c-a91354d25e57",
     akreditasi: "https://ban-pdm.id/satuanpendidikan/K5666768",
+    maps: "https://maps.app.goo.gl/5XGWats4Nut4Prig9?g_st=ic",
   },
 } as const;
 
