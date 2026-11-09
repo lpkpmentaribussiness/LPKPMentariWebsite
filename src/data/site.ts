@@ -43,7 +43,7 @@ export const professionalProgram = {
   benefits: [
     {
       title: "Disediakan Tempat Tinggal",
-      description: "Akomodasi tempat tinggal gratis selama masa pendidikan bagi peserta pelatihan.",
+      description: "Akomodasi tempat tinggal selama masa pendidikan bagi peserta pelatihan.",
     },
     {
       title: "Makan 3x Sehari",
